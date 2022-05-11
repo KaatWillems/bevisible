@@ -156,7 +156,12 @@ a {
 /* ============================ 6. FORMS & INPUTS  ============================ */
 
 input {
+
   border: 1px solid black;
+
+  
+  border: none;
+
   border-radius:30px;
 
 }
