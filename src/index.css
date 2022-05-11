@@ -135,6 +135,18 @@ h3 {
 
 /* ============================ 4.1. Header ============================ */
 
+.backedit-container {
+  display:flex;
+  justify-content: space-between;
+  margin: 30px;
+
+  
+}
+
+a {
+  text-decoration: none;
+  color:var(--clr-blue)
+}
 /* ============================ 4.2. Navbar ============================ */
 
 
@@ -144,8 +156,12 @@ h3 {
 /* ============================ 6. FORMS & INPUTS  ============================ */
 
 input {
+
+  border: 1px solid black;
+
   
   border: none;
+
   border-radius:30px;
 
 }
@@ -160,12 +176,12 @@ button {
   transition: .3s ease-out;
   padding: .4em 1em;
   width: fit-content;
-  background-color: var(--clr-blue);
+  
 }
 
 .tag {
 
-  background-color: var(--clr-blue-light);
+  
 
 }
 
@@ -180,3 +196,82 @@ button {
 
 
 /* ============================ 8.3. Detailed profile page ============================ */
+
+
+
+.Detailprofilepage-container {
+  min-height: 100vh;
+}
+
+.Pic-name-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.profilepic {
+  height: 130px;
+  width: 130px;
+}
+
+.profilepage-name {
+  font-weight:500;
+  font-size:1.3rem;
+}
+
+
+.profilepage-subtitle {
+  font-weight: 300;
+  color: grey;
+  font-size: 0.9rem;
+}
+
+.profilepage-resume-container {
+  margin-left: 25px;
+  margin-right:25px;
+  margin-top:10px;
+}
+
+.profilepage-title {
+
+  text-transform: uppercase;
+  color:grey; 
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top:10px;
+
+}
+
+.profilepage-text {
+  font-size: 1rem
+}
+
+.tagKaat-container {
+  display:flex;
+  justify-content: space-around;
+  margin-top:10px;
+}
+
+.tagKaat {
+  background-color: var(--clr-blue);
+  color:white;
+}
+
+.workrows {
+  display:flex;
+  flex-direction: column;
+
+}
+
+.workrow {
+display:flex;
+justify-content: space-between;
+}
+
+.work-separator-line {
+ background-color: --clr-grey-light;
+  
+  align-self:center;
+  height: 5px;
+}
