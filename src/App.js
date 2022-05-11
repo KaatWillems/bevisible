@@ -1,11 +1,16 @@
+import Detailprofilepage from "./components/Detailprofilepage";
+
+import Button from "./components/features/Button";
+import Inputfield from "./components/features/Inputfield";
+
 
 
 function App() {
   return (
-    <div className="App">
-      <input type="text"></input>
-      <button className="tag">Reac</button>
-      <button >javascript</button>
+    <div >
+      {/* <Detailprofilepage /> */}
+     
+    
     </div>
   );
 }
