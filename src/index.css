@@ -144,7 +144,7 @@ h3 {
 /* ============================ 6. FORMS & INPUTS  ============================ */
 
 input {
-  background-color:var(--clr-grey-light);
+  
   border: none;
   border-radius:30px;
 
