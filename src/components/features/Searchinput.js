@@ -2,7 +2,7 @@ import React from 'react';
 
 const Searchinput = (props) => {
   return (
-    <div></div>
+    <input type="text" placeholder="Search" />
   )
 }
 

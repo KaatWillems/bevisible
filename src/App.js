@@ -1,12 +1,9 @@
-
+import React from "react"
+import Startpage from './components/Startpage'
 
 function App() {
   return (
-    <div className="App">
-      <input type="text"></input>
-      <button className="tag">Reac</button>
-      <button >javascript</button>
-    </div>
+    <Startpage />
   );
 }
 
