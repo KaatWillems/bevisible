@@ -1,6 +1,12 @@
 import React from 'react'
 import Backedit from './features/Backedit'
  import pic1 from '../images/profile1.png'
+ import becodelogo from '../images/becodelogo.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons' 
+import { faGithubSquare } from '@fortawesome/free-brands-svg-icons' 
+import { faDribbbleSquare } from '@fortawesome/free-brands-svg-icons' 
+
 
 function Detailprofilepage() {
   return (
@@ -17,9 +23,10 @@ function Detailprofilepage() {
         <div className='projects-container'>
             <h4 className='profilepage-title'>Projects </h4>
             <div className='profilepage-text'> *projects to come here*</div>
-            <hr />
-
         </div> 
+
+        <div className='work-separator-line'></div> 
+        
 
         <div className='aboutme-container'>
             <h4 className='profilepage-title'>About me </h4>
@@ -33,19 +40,67 @@ function Detailprofilepage() {
 
         <div className='work-container'>
             <h4 className='profilepage-title'>Working experience</h4>
-            <div className='workrows'>
-                <div className='workrow row1'>
+            <div className='rows'>
+
+                <div className='row work1'>
                   <div className='profilepage-text'> BeCode Web Developer Trainee </div>
-                  <div className='work-duration'>7 months</div>
+                  <div className='duration'>7 months</div>
                 </div>
+
                 <div className='work-separator-line'></div> 
-                <div className='workrow row2'>
+
+                <div className='row work2'>
                   <div className='profilepage-text'> Professional Candy Taster </div>
-                  <div className='work-duration'>2 years</div>
+                  <div className='duration'>2 years</div>
                 </div>
             </div>
+        </div>
+
+
+        <div className='education-container'>
+            <h4 className='profilepage-title'>Education</h4>
+           <div className='rows'>
+              <div className='row education1'>
+                    <div className='profilepage-text'> School of Life </div>
+                    <div className='duration'>2016</div>
+                  </div>
+           </div>
+        </div>
+
+
+        <div className='interest-container'>
+           <h4 className='profilepage-title'>Interests</h4>
+           <div className='profilepage-text'> Krav Maga - Making pizza - Gaming </div>
+        </div>
+
+
+        <div className='appraisal-container'>
+            <h4 className='profilepage-title'>Appraisals</h4>
+            <div className='rows'>
+              <div className='row appraisal1'>
+                    <img src={becodelogo} className="becodelogo" alt="logo becode"/>
+                    <div className='name- comment-wrapper'>
+                      <div className='name-appraisal'> Coach Snoop Diogo
+                      </div>
+                      <div className='profilepage-text'> Pretty shit student tbh </div>
+                      </div>
+                    <div className='duration'>2 months ago</div>
+                  </div>
+              </div>    
+        </div>
+
+        <div className='social-container'>
+          <h4 className='profilepage-title'>Find me on</h4>
+          <div className='icon-wrapper'>
+              <div className='icon'><FontAwesomeIcon icon={faLinkedin}/></div>
+              <div className='icon'><FontAwesomeIcon icon={faGithubSquare}/></div>
+              <div className='icon'><FontAwesomeIcon icon={faDribbbleSquare}/></div>
+          </div>
+
 
         </div>
+
+
 
       </div>
 
