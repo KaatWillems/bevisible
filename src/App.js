@@ -1,12 +1,12 @@
 
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Detailprofilepage from "./components/Detailprofilepage";
 import Button from "./components/features/Button";
 import Inputfield from "./components/features/Inputfield";
-import Startpage from "./components/Startpage";
-
-
+import React from "react"
+import Startpage from "./components/Startpage"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 function App() {
@@ -15,12 +15,13 @@ function App() {
       <Routes>
         <Route index element={<Startpage/>} /> 
         <Route path="*" element={<div>404 page not found</div>} />
-        <Route path="/detailprofilepage" element={<Detailprofilepage/>} />
-        
+        <Route path="/profile" element={<Detailprofilepage/>} />  
         
       </Routes>
     </BrowserRouter>
 
+
+ 
   );
 }
 
