@@ -2,7 +2,7 @@ import React from 'react';
 
 const Filter = (props) => {
   return (
-    <div></div>
+    <div className={(props.className)}>Filters</div>
   )
 }
 

@@ -5,6 +5,7 @@ import Location from './features/Location'
 
 const Card = () => {
   return (
+    
     <div className="cards-container"> 
     <container className="card">
     <div className='Pic-name-container'>
@@ -15,6 +16,7 @@ const Card = () => {
     <Location />
     </div> 
      </container> 
+     
 
       <container className="card">
     <div className='Pic-name-container'>
