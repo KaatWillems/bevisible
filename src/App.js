@@ -7,6 +7,7 @@ import Inputfield from "./components/features/Inputfield";
 import React from "react"
 import Startpage from "./components/Startpage"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Newprofile from "./components/Newprofile";
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         <Route index element={<Startpage/>} /> 
         <Route path="*" element={<div>404 page not found</div>} />
         <Route path="/profile" element={<Detailprofilepage/>} />  
-        
+        <Route path="/newprofile" element={<Newprofile/>} />  
       </Routes>
     </BrowserRouter>
 

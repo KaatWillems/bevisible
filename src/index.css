@@ -365,7 +365,7 @@ align-items: flex-start;
   justify-content: space-around;
 }
 
-.icon {
+.icon-kaat {
   font-size: 18pt;
   color: var(--clr-blue);
 }
@@ -400,5 +400,84 @@ display: flex;
 align-self: end;}
 
   
+
+
+/* ============================ 8.4. New Profile ============================ */
+
+.newprofile-top-container {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.newprofile-title {
+
+  color: var(--clr-blue);
+  font-weight: 500;
+  margin-top:10px; 
+  margin-bottom:10px;
+
+}
+
+
+
+.blue-circle {
+  background-color:var(--clr-blue);  
+  height: 100px;
+  width: 100px;
+  border-radius:50%;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  text-align:center;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.uploadprofilepic {
+  font-size: 10pt;
+  color:white;
+  width: 70%;
+}
+
+.newprofile-wrapper {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  display:flex;
+  flex-direction: column;
+  width: 75%;
+  
+  
+}
+
+.newprofile-input{
+  background-color: var(--clr-grey-light);
+  height: 2rem;
+  padding-left:10px;
+  margin-bottom:10px;
+  font-size:1rem;
+}
+
+.newprofile-uploadinput {
+  background-color: var(--clr-grey-light);
+ 
+  
+
+}
+
+.newprofile-smalltitle{
+text-transform: uppercase;
+color:grey; 
+font-weight: 500;
+font-size: 1rem;
+margin-top:15px;
+margin-bottom:5px;
+align-self:flex-start;
+margin-left:20px;
+}
 
 
