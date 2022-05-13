@@ -1,11 +1,15 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons' 
+import Filter from '../Filter'
 
-const Searchinput = (props) => {
+
+
+const Searchinput = () => {
   return (
-<form className="search-tools">
-      <div className="search-bar">
+          <>
+<div className="search-tools">
+      <form className="search-bar">
     <div className="search-container">
       <input
         className="search-input"
@@ -19,9 +23,12 @@ const Searchinput = (props) => {
         </FontAwesomeIcon>
       </label>
     </div>
-    </div>
     </form>
-
+    <div> 
+    <Filter className="filter" />
+    </div>
+    </div>
+</>
   )
 }
 
