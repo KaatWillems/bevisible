@@ -158,6 +158,17 @@ align-items: center;
 padding-top: 20px;
 box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)
 }
+
+.header-title {
+margin-top: 1em;
+margin-bottom: 0em;
+
+}
+
+.header-subtitle {
+  margin: 0em;
+                
+}
 /* ============================ 4.2. Navbar ============================ */
 
 .navbar-container {
@@ -270,6 +281,7 @@ padding-top: 20px;
 /* ============================ 7. BUTTONS & TAGS============================ */
 
 button {
+  
   cursor:pointer;
   border-radius: 30px;
   border:none;
@@ -280,14 +292,7 @@ button {
   color:white;
   font-size: 1rem;
   
-  
-}
 
-.tag {
-
-  
-
-}
 
 
 /* ============================ 8. PAGES ============================ */
@@ -297,6 +302,62 @@ button {
 
 
 /* ============================ 8.2. Login page ============================ */
+
+
+.login-page { 
+height: 100%;
+background-color: var(--clr-blue) ;
+}
+
+.login-text {
+margin-top: 0em;
+padding-top: 80px;
+text-align: center;
+margin-bottom: 70px;
+}
+
+
+.inner-label-wrap {
+  position:relative;
+  width: 80%;
+}
+.inner-label-wrap input {
+  padding-top: 1.3em;
+}
+.inner-label-wrap input::placeholder {
+  opacity:0;
+}
+
+.login-form {
+padding-top: 50px;     
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+border-radius:  70px 70px 0px 0px;
+background-color: white;
+margin-top: 20px;
+ }
+
+
+hr {
+margin-bottom: 10px;
+
+} 
+
+.inner-label {
+  font-size: 24px;
+  font-weight: bold;
+  top:.9em;
+  left:1.5em;
+  white-space: nowrap;
+  transition: .3s ease-out;
+  transform-origin: 0 0;}
+
+ button.password {
+  height: 60px;
+font-size: 30px;
+} 
 
 
 /* ============================ 8.3. Detailed profile page ============================ */
@@ -427,6 +488,7 @@ align-items: flex-start;
   border-radius:20px;
   box-shadow: 3px 3px 5px #71CED6;
   justify-content: space-between;
+  width: 95%;
 
 }
 
@@ -436,6 +498,7 @@ align-items: flex-start;
   flex-wrap: wrap;
 justify-content: center;
 margin-top: 50px;
+
 }
 
 
@@ -445,7 +508,18 @@ display: flex;
 align-self: end;}
 
   
+.tagKaat-container.start {
+  display:flex;
+  justify-content: space-around;
+  margin-top:10px;
+  flex-wrap: wrap;
+}
 
+.tagKaat.start {
+  background-color: var(--clr-blue);
+  color:white;
+  margin: 10px;
+}
 
 /* ============================ 8.4. New Profile ============================ */
 
