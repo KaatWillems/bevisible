@@ -291,7 +291,7 @@ button {
   background-color: var(--clr-blue);
   color:white;
   font-size: 1rem;
-  
+  }
 
 
 
@@ -347,7 +347,7 @@ margin-bottom: 10px;
 
 .inner-label {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
   top:.9em;
   left:1.5em;
   white-space: nowrap;

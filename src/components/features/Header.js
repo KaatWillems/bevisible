@@ -4,6 +4,7 @@ import Detailprofilepage from "../Detailprofilepage"
 import Backedit from './Backedit'
 
 import  pic2  from '../../images/logo.png'
+import Searchinput from './Searchinput'
 
 const Header = () => {
     return (
@@ -15,10 +16,6 @@ const Header = () => {
        
         <h2 className='header-subtitle'> Find a developer </h2>
         <Searchinput />
-
-        <Backedit />
-        <h1> Be Visible</h1> 
-        <h2> Find a developer </h2>
         
 
         </div>
