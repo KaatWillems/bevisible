@@ -19,8 +19,9 @@ const Loginform = (props) => {
 
 			</div>
 			<button className="password" type="submit" value="LOG IN"> Login </button>
-
+			<p className="inner-label user">New User? <a> Join us! </a> </p>
     	 </form> 
+
     </div>
   )
 }
