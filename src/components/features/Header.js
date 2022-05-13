@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import Detailprofilepage from "../Detailprofilepage"
 import Backedit from './Backedit'
 import Searchinput from './Searchinput'
+import { pic2 } from '../components/logo.png'
 
 const Header = () => {
     return (
     	<>
     	
     	<div className='header-top flex'>
-        <Backedit />
-        <h1> Be Visible</h1> 
-        <h2> Find a developer </h2>
+        <img src={pic2} alt="profilepic"/>
+       
+        <h2 className='header-subtitle'> Find a developer </h2>
         <Searchinput />
         </div>
         </>
