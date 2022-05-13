@@ -92,9 +92,9 @@ function Detailprofilepage() {
         <div className='social-container'>
           <h4 className='profilepage-title'>Find me on</h4>
           <div className='icon-wrapper'>
-              <div className='icon'><FontAwesomeIcon icon={faLinkedin}/></div>
-              <div className='icon'><FontAwesomeIcon icon={faGithubSquare}/></div>
-              <div className='icon'><FontAwesomeIcon icon={faDribbbleSquare}/></div>
+              <div className='icon-kaat'><FontAwesomeIcon icon={faLinkedin}/></div>
+              <div className='icon-kaat'><FontAwesomeIcon icon={faGithubSquare}/></div>
+              <div className='icon-kaat'><FontAwesomeIcon icon={faDribbbleSquare}/></div>
           </div>
 
 

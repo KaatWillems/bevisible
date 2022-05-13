@@ -2,7 +2,7 @@ import React from 'react'
 
 function Inputfield(props) {
   return (
-    <input type="text" placeholder="add x "/>
+    <input type="text" placeholder={(props.placeholder)} className={(props.className)}/>
   )
 }
 
