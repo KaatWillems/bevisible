@@ -2,7 +2,7 @@ import React from 'react'
 
 function Button(props) {
   return (
-    <button type="submit">Button</button>
+    <button type="submit" >{(props.value)}</button>
     
   )
 }
