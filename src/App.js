@@ -9,6 +9,7 @@ import Startpage from "./components/Startpage"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Newprofile from "./components/Newprofile";
 import Login from "./components/Login"
+import Register from  "./components/Register"
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/profile" element={<Detailprofilepage/>} />  
         <Route path="/newprofile" element={<Newprofile/>} />  
         <Route path="/login" element={<Login/>} />  
+        <Route path="/register" element={<Register/>} />  
       </Routes>
     </BrowserRouter>
 
