@@ -125,7 +125,8 @@ function Newprofile() {
          
          </form> 
          <div className='newprofile-btn-container'>
-           <Button form="newprofile" value="Submit" /></div>
+           <Button form="newprofile" value="Submit"
+           className="profilesubmit" /></div>
       </div>
       <Navbar />
    </>
