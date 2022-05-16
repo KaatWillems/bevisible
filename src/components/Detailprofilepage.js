@@ -5,7 +5,7 @@ import Backedit from './features/Backedit'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons' 
 import { faGithubSquare } from '@fortawesome/free-brands-svg-icons' 
-import { faDribbbleSquare } from '@fortawesome/free-brands-svg-icons' 
+import { faAt } from '@fortawesome/free-solid-svg-icons' 
 import Navbar from './features/Navbar'
 
 
@@ -36,7 +36,7 @@ function Detailprofilepage() {
               
               {/* change to tag component Charlotte: */}
               <div className='tagKaat-container'>
-                <button className='tagKaat'>Javascript</button> <button className='tagKaat'>React</button> <button className='tagKaat'>Python</button>
+                <button className='profile-tag'>Javascript</button> <button className='profile-tag'>React</button> <button className='profile-tag'>Python</button>
               </div>
           </div>
   
@@ -92,11 +92,12 @@ function Detailprofilepage() {
           </div>
   
           <div className='social-container'>
-            <h4 className='profilepage-title'>Find me on</h4>
+            <h4 className='profilepage-title'>Connect with me </h4>
             <div className='icon-wrapper'>
+                <div className='icon-kaat'><FontAwesomeIcon icon={ faAt }/></div>
                 <div className='icon-kaat'><FontAwesomeIcon icon={faLinkedin}/></div>
                 <div className='icon-kaat'><FontAwesomeIcon icon={faGithubSquare}/></div>
-                <div className='icon-kaat'><FontAwesomeIcon icon={faDribbbleSquare}/></div>
+                
             </div>
   
   

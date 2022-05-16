@@ -114,7 +114,7 @@ function Newprofile() {
             <div className='newprofile-smalltitle'>Find me on</div>
             <div className='input-container'>
              
-              <Inputfield placeholder="Add link to social media account"  className="newprofile-input" />
+              <Inputfield placeholder="Add your e-mail addresss"  className="newprofile-input" />
               <Inputfield placeholder="Add link to social media account"  className="newprofile-input" />
               <Inputfield placeholder="Add link to social media account"  className="newprofile-input" />    
               

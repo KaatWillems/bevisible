@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faWandMagicSparkles } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
 function Navbar() {
   return (
@@ -13,8 +13,8 @@ function Navbar() {
             <p className='text-icon-nav'>Explore</p>
             </div>        
         <div className='navbar-icon proot-icon'>
-        <FontAwesomeIcon icon={faWandMagicSparkles} />
-        <p className='text-icon-nav'>Proot</p>
+        <FontAwesomeIcon icon={faBookmark} />
+        <p className='text-icon-nav'>Bookmarks</p>
         </div>
         <div className='navbar-icon profile-icon'>
         <FontAwesomeIcon icon={faUser} />
