@@ -356,7 +356,8 @@ margin-bottom: 10px;
 
  button.password {
   height: 60px;
-font-size: 30px;
+font-size: 25px;
+
 } 
 
 
@@ -488,7 +489,7 @@ align-items: flex-start;
   border-radius:20px;
   box-shadow: 3px 3px 5px #71CED6;
   justify-content: space-between;
-  width: 95%;
+ 
 
 }
 
@@ -516,10 +517,13 @@ align-self: end;}
 }
 
 .tagKaat.start {
-  background-color: var(--clr-blue);
-  color:white;
+  background-color: var(--clr-grey-light);
+  color:black;
+  font-weight: 200;
   margin: 10px;
+  padding: 12px;
 }
+
 
 /* ============================ 8.4. New Profile ============================ */
 
