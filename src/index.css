@@ -359,9 +359,17 @@ margin-bottom: 10px;
  button.password {
   height: 60px;
 font-size: 25px;
+margin-bottom:70px;
 
 } 
 
+.messages {
+ 
+  
+  border: none;
+  text-align: center;
+
+}
 
 /* ============================ 8.3. Detailed profile page ============================ */
 
@@ -649,4 +657,9 @@ margin-left:20px;
   justify-content: center;
   margin-top:25px;
   margin-bottom:75px;
+}
+
+.profilesubmit{
+  padding: 0.4rem 5rem;
+  font-size:1rem;
 }

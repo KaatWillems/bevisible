@@ -1,28 +1,19 @@
 import React from 'react';
 
-const Loginform = (props) => {
+const Loginform = ({ className, type, id, placeholder, name, value, onChange  }) => {
   return (
-    <div>
     
-    	<form className="login-form flex flex-col">
-    	
-<div className="inner-label-wrap">
-				<label className="inner-label" for="email">Email</label>
-				<input className="full-width" type="email" id="email" name="email"/>
-				      <hr/>
+				<input 
+				className={className} 
+				type={type} 
+				id={id} 
+				placeholder={placeholder}
+				name={name}
+				value={value}
+				onChange={onChange}/>
+				   
 
-			</div>
-			<div className='inner-label-wrap'>
-				<label className="inner-label" for="password">Password</label>
-				<input className="full-width" type="password" id="password" name="password" />
-				<hr/>
 
-			</div>
-			<button className="password" type="submit" value="LOG IN"> Login </button>
-			<p className="inner-label user">New User? <a> Join us! </a> </p>
-    	 </form> 
-
-    </div>
   )
 }
 

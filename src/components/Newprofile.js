@@ -248,7 +248,7 @@ console.log(form)
            <Button form="newprofile" value="Submit" /></div>
          
          </form> 
-         
+
       </div>
       <Navbar />
    </>
