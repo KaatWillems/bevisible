@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Backedit from './features/Backedit'
  import pic1 from '../images/profile1.png'
  import becodelogo from '../images/becodelogo.png'
@@ -7,9 +7,18 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faGithubSquare } from '@fortawesome/free-brands-svg-icons' 
 import { faAt } from '@fortawesome/free-solid-svg-icons' 
 import Navbar from './features/Navbar'
-
+import profiledata from './profiledata.json'
 
 function Detailprofilepage() {
+  // useEffect(() => {
+  //   // Replace ith API call
+  //   const userData = profiledata
+
+
+  //   console.log(profiledata)
+  //
+  const [profile, setProfile] = useState(profiledata[0]) 
+
   return (
    <>
       <div className='Detailprofilepage-container'>
@@ -17,8 +26,8 @@ function Detailprofilepage() {
   
         <div className='Pic-name-container'>
             <img src={pic1} alt="profilepic" className='profilepic'/>
-            <h4 className='profilepage-name'> Charka Smith</h4>
-            <h5 className='profilepage-subtitle'>Junior Full Stack Developer</h5>
+            <h4 className='profilepage-name'> {profile.name}</h4>
+            <h5 className='profilepage-subtitle'>{profile.title}</h5>
         </div>
         {/* Resume from projects - social media icons: */}
         <div className='profilepage-resume-container'>
