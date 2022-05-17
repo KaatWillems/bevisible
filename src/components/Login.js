@@ -1,78 +1,111 @@
 import React from 'react';
 import Loginform from './features/Loginform'
-import { useState } from 'react';
+import { Link } from "react-router-dom";
+import { useRef, useState, useEffect } from 'react';
+
+
 
 
 
 const Login = () => {
 
-  const [loginform, setLoginform] = useState({
-    email:"",
-    password:""
-  })
+  const userRef = useRef();
+  const errRef = useRef();
+ 
+  const [user, setUser] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [errMsg, setErrMsg] = useState('');
+  const [success, setSuccess] = useState(false);
 
 
-  const handleChange= event => {
-    event.preventDefault()
-    const target = event.target;
-    setLoginform({...loginform, [target.name]: target.value})
-    
-    console.log(target)
+  //set focus on this when component loads
+//   useEffect(() => {
+//     userRef.current.focus();
+// }, [])
 
-  }
+  // empty out error messages if user or pw state is changed 
+useEffect(() => {
+    setErrMsg('');
+}, [user, pwd])
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log(loginform)
-  }
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
+
+  // BACKEND SHOULD BE LINKED HERE. with AXIOS? and then you can delete the below:
+  console.log(user, pwd);
+  setUser('');
+  setPwd('');
+  setSuccess(true);
+
+}
 
   return (
   	<>
+    {success ? (
+    <section className='success-login-page'>
+    <h1>You are logged in!</h1>
+    <br />
+    <p className='p-success'>
+      Your next step is to create a profile.
+      </p>
+      <br />
+      <button> <Link to="/newprofile" className='succes-create-profile-btn'>Create profile</Link> </button>
+      <p className='p-home'> <Link to="/">Already have a profile? Go explore the home page</Link> </p>
     
+    </section>
+    
+    ) : (
+
     <div className='login-page'> 
+
+    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} >{errMsg}</p>
+
     <h1 className='login-text'> Login </h1> 
     
     <div>
     
-    <form className="login-form flex flex-col">
+    <form onSubmit={handleSubmit} className="login-form flex flex-col">
     
 <div className="inner-label-wrap">
-      <label className="inner-label" for="email"></label>
+      <label className="inner-label" htmlFor="username"></label>
       <Loginform 
       className="full-width"
-      type="email"
-      id="email"
-      placeholder="Email"
-      name="email"
-      value={loginform.email}
-      onChange={handleChange}
+      type="text"
+      id="username"
+      placeholder="Username"
+      name="username"
+      value={user}
+      onChange={(e) => setUser(e.target.value)}
       />
      
             <hr/>
 
     </div>
     <div className='inner-label-wrap'>
-      <label className="inner-label" for="password"></label>
+      <label className="inner-label" htmlFor="password"></label>
       <Loginform 
       className="full-width"
       type="password"
       id="password"
       placeholder="Password"
       name="password"
-      value={loginform.password}
-      onChange={handleChange}  />
+      value={pwd}
+      onChange={(e) => setPwd(e.target.value)} 
+      />
       <hr/>
 
     </div>
-    <button onClick={handleSubmit} className="password" type="submit" value="LOG IN"> Login </button>
-    <p className="inner-label user">New User? <a> Join us! </a> </p>
+    <button className="password" type="submit" value="LOG IN"> Login </button>
+
+    <p className="inner-label user">New user? <Link to="/register">Join us!</Link> </p>
+
      </form> 
 
   </div>
 
     </div>
-
+    )}
     </>
   )
 }

@@ -295,6 +295,7 @@ padding-top: 20px;
 
  .profile-tag {
    padding:0.4rem 1rem;
+   
  }
 
 
@@ -338,6 +339,26 @@ background-color: var(--clr-blue);
 
 
 
+.offscreen {
+  display:none;
+}
+
+.success-page{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin-top:200px;
+  background-color: var(--clr-blue);
+  color:white; 
+  margin-bottom:200px;
+
+}
+
+.succes-log {
+  color: white !important;
+  font-weight: 600;
+}
 /* ============================ 8.2. Login page ============================ */
 
 
@@ -360,10 +381,15 @@ margin-bottom: 70px;
 }
 .inner-label-wrap input {
   padding-top: 1.3em;
+  height: 2rem;
+  padding-left:10px;
+  margin-bottom:10px;
+  font-size:1rem;
 }
-.inner-label-wrap input::placeholder {
-  opacity:0;
-}
+/* .inner-label-wrap input::placeholder {
+   opacity:0; 
+ 
+} */
 
 .login-form {
 padding-top: 50px;     
@@ -392,9 +418,11 @@ margin-bottom: 10px;
   transform-origin: 0 0;}
 
  button.password {
-  height: 60px;
-font-size: 25px;
+  /* height: 60px; */
+font-size: 1.5rem;
 margin-bottom:70px;
+padding: 0.6rem 5rem;
+margin-top:20px;
 
 } 
 
@@ -404,6 +432,46 @@ margin-bottom:70px;
   border: none;
   text-align: center;
 
+}
+
+
+.success-login-page {
+  background-color:var(--clr-blue);
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right:20px;
+  color:white;
+  font-size: 1rem;
+
+}
+
+.success-login-page>h1{
+  margin-top:100px;
+}
+
+.succes-create-profile-btn {
+  background-color: white !important;
+  color: var(--clr-blue) !important;
+  border-radius:30px;
+  padding: 0.7rem 2.5rem;
+  font-size:1rem;
+  font-weight: bold;
+  
+
+
+}
+
+
+.p-success {
+  margin-bottom:25px;
+}
+
+.p-home {
+  margin-top:30px;
+  color:white !important;
 }
 
 /* ============================ 8.3. Detailed profile page ============================ */
