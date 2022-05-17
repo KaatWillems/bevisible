@@ -1,15 +1,15 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useState} from 'react-router-dom';
+import Button from "./Button"
+
+function Backedit(props) {
+ const navigate = useNavigate();
 
 
-function Backedit() {
-
- 
-    const navigate = useNavigate();
     return (
       <div className='backedit-container'>
         <a onClick={() => navigate(-1)}>Back</a>
-        <a href="">Edit</a>
+        <a onClick={props.onClick}>Edit</a>
     </div>
 
     )

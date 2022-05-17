@@ -8,6 +8,8 @@ import { faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 import { faAt } from '@fortawesome/free-solid-svg-icons' 
 import Navbar from './features/Navbar'
 import profiledata from './profiledata.json'
+import Button from './features/Button'
+import Popup from './features/Popup'
 
 function Detailprofilepage() {
 
@@ -26,10 +28,28 @@ function Detailprofilepage() {
    return <button className='tagButton2'>{tag}</button> 
  })
 
+
+const [show, setShow] = useState(false)
+// function changeState() {
+//     setShow(!show);  
+// }
+
+function makeAppear() {
+  setShow(!show);
+}
+
+
+const [isOpen, setIsOpen] = useState(true)
+
+const togglePopUp = () => {
+  console.log("hello")
+  setIsOpen(!isOpen)
+} 
+
   return (
    <>
       <div className='Detailprofilepage-container'>
-        <Backedit />
+        <Backedit onClick={makeAppear}  />
   
         <div className='Pic-name-container'>
             <img src={pic1} alt="profilepic" className='profilepic'/>
@@ -37,9 +57,17 @@ function Detailprofilepage() {
             <h5 className='profilepage-subtitle'>{profile.title}</h5>
         </div>
         {/* Resume from projects - social media icons: */}
-        <div className='profilepage-resume-container'>
+        <div className='profilepage-resume-container'> 
           <div className='projects-container'>
-              <h4 className='profilepage-title'>Projects </h4>
+              <h4 className='profilepage-title'>Projects { show ? <input type="Button" onClick={togglePopUp} value="Edit" className='btn edit' /> : null } </h4>
+             <div> {isOpen && <Popup
+      content={<>
+        <b>Edit your projects</b>
+        
+        <button>Test button</button>
+      </>}
+      handleClose={togglePopUp}
+    />} </div>
               <div className='profilepage-text'> *projects to come here*</div>
           </div> 
   
@@ -47,16 +75,17 @@ function Detailprofilepage() {
           
   
           <div className='aboutme-container'>
-              <h4 className='profilepage-title'>About me </h4>
+ 
+              <h4 className='profilepage-title'>About me  { show ? <Button value="Edit"  className='btn edit' /> : null } </h4> 
               <div className='aboutme-text profilepage-text'> {profile.about} </div>
               
               {/* change to tag component Charlotte: */}
               <div className='tagKaat-container'>
-               {Tagsbutton} </div>
+               {Tagsbutton} { show ? <Button value="Edit" className='btn edit' /> : null } </div>
           </div>
   
           <div className='work-container'>
-              <h4 className='profilepage-title'>Working experience</h4>
+              <h4 className='profilepage-title'>Working experience { show ? <Button value="Edit"  className='btn edit' /> : null } </h4>
               <div className='rows'>
   
                   <div className='row work1'>
@@ -75,7 +104,7 @@ function Detailprofilepage() {
   
   
           <div className='education-container'>
-              <h4 className='profilepage-title'>Education</h4>
+              <h4 className='profilepage-title'>Education { show ? <Button value="Edit"  className='btn edit' /> : null } </h4>
              <div className='rows'>
                 <div className='row education1'>
                       <div className='profilepage-text'> {profile.education[0].school} </div>
@@ -86,7 +115,7 @@ function Detailprofilepage() {
   
   
           <div className='interest-container'>
-             <h4 className='profilepage-title'>Interests</h4>
+             <h4 className='profilepage-title'>Interests { show ? <Button value="Edit"  className='btn edit' /> : null } </h4>
              <div className='profilepage-text'> {profile.interests} </div>
           </div>
   
@@ -107,7 +136,7 @@ function Detailprofilepage() {
           </div>
   
           <div className='social-container'>
-            <h4 className='profilepage-title'>Connect with me </h4>
+            <h4 className='profilepage-title'>Connect with me { show ? <Button value="Edit" className='btn edit' /> : null } </h4>
             <div className='icon-wrapper'>
                 <div className='icon-kaat'><FontAwesomeIcon icon={ faAt }/></div>
                 <div className='icon-kaat'><FontAwesomeIcon icon={faLinkedin}/></div>
