@@ -8,8 +8,12 @@ import { faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 import { faAt } from '@fortawesome/free-solid-svg-icons' 
 import Navbar from './features/Navbar'
 import profiledata from './profiledata.json'
+
 import Button from './features/Button'
 import Popup from './features/Popup'
+
+import Project from './features/Project'
+
 
 function Detailprofilepage() {
 
@@ -29,6 +33,7 @@ function Detailprofilepage() {
  })
 
 
+
 const [show, setShow] = useState(false)
 // function changeState() {
 //     setShow(!show);  
@@ -46,6 +51,12 @@ const togglePopUp = () => {
   setIsOpen(!isOpen)
 } 
 
+
+ let Projectlist = profile.projects.map((project, index) => {
+   return <Project projectinfo={project} key={`project_nbr_${index}`}  />
+  
+ })
+ 
   return (
    <>
       <div className='Detailprofilepage-container'>
@@ -59,6 +70,7 @@ const togglePopUp = () => {
         {/* Resume from projects - social media icons: */}
         <div className='profilepage-resume-container'> 
           <div className='projects-container'>
+
               <h4 className='profilepage-title'>Projects { show ? <input type="Button" onClick={togglePopUp} value="Edit" className='btn edit' /> : null } </h4>
              <div> {isOpen && <Popup
       content={<>
@@ -68,7 +80,14 @@ const togglePopUp = () => {
       </>}
       handleClose={togglePopUp}
     />} </div>
-              <div className='profilepage-text'> *projects to come here*</div>
+          
+              <div className='projects-wrapper'>
+                
+                {Projectlist}
+               
+              </div>
+              
+
           </div> 
   
           <div className='work-separator-line'></div> 
