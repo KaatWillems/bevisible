@@ -10,6 +10,9 @@ import Navbar from './features/Navbar'
 import profiledata from './profiledata.json'
 
 function Detailprofilepage() {
+
+
+                              
   // useEffect(() => {
   //   // Replace ith API call
   //   const userData = profiledata
@@ -17,7 +20,11 @@ function Detailprofilepage() {
 
   //   console.log(profiledata)
   //
-  const [profile, setProfile] = useState(profiledata[0]) 
+  const [profile, setProfile] = useState(profiledata[0])
+
+  let Tagsbutton = profile.tags.map((tag, index) => {
+   return <button className='tagButton2'>{tag}</button> 
+ })
 
   return (
    <>
@@ -41,12 +48,11 @@ function Detailprofilepage() {
   
           <div className='aboutme-container'>
               <h4 className='profilepage-title'>About me </h4>
-              <div className='aboutme-text profilepage-text'> Full Stack Web Developer in the making. Student at Becode, currently looking for internship Aug & Sep. </div>
+              <div className='aboutme-text profilepage-text'> {profile.about} </div>
               
               {/* change to tag component Charlotte: */}
               <div className='tagKaat-container'>
-                <button className='profile-tag'>Javascript</button> <button className='profile-tag'>React</button> <button className='profile-tag'>Python</button>
-              </div>
+               {Tagsbutton} </div>
           </div>
   
           <div className='work-container'>
@@ -54,15 +60,15 @@ function Detailprofilepage() {
               <div className='rows'>
   
                   <div className='row work1'>
-                    <div className='profilepage-text'> BeCode Web Developer Trainee </div>
-                    <div className='duration'>7 months</div>
+                    <div className='profilepage-text'> {profile.work[0].jobposition} </div>
+                    <div className='duration'>{profile.work[0].duration}</div>
                   </div>
   
                   <div className='work-separator-line'></div> 
   
                   <div className='row work2'>
-                    <div className='profilepage-text'> Professional Candy Taster </div>
-                    <div className='duration'>2 years</div>
+                    <div className='profilepage-text'>{profile.work[1].jobposition}</div>
+                    <div className='duration'>{profile.work[1].duration}</div>
                   </div>
               </div>
           </div>
@@ -72,8 +78,8 @@ function Detailprofilepage() {
               <h4 className='profilepage-title'>Education</h4>
              <div className='rows'>
                 <div className='row education1'>
-                      <div className='profilepage-text'> School of Life </div>
-                      <div className='duration'>2016</div>
+                      <div className='profilepage-text'> {profile.education[0].school} </div>
+                      <div className='duration'>{profile.education[0].graduation}</div>
                     </div>
              </div>
           </div>
@@ -81,7 +87,7 @@ function Detailprofilepage() {
   
           <div className='interest-container'>
              <h4 className='profilepage-title'>Interests</h4>
-             <div className='profilepage-text'> Krav Maga - Making pizza - Gaming </div>
+             <div className='profilepage-text'> {profile.interests} </div>
           </div>
   
   

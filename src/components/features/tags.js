@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const Tags = (props) => {
+
+const [isActive, setActive] = useState(false)
+
+const toggleClass = () => {
+  setActive(!isActive);
+}
+
+
+
   return (
     <>
-    	<div className='tagKaat-container start'>
-              <button className='tagKaat start'>Javascript</button> <button className='tagKaat start'>React</button> <button className='tagKaat start'>Python</button>
-            </div>
+    	
+              <button 
+          className={isActive ? 'tagButton2' : 'tagButton' || "tagButton"} onClick={toggleClass}> {props.tag}
+              </button> 
+            
     </>
   )
 }

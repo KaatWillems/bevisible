@@ -245,7 +245,7 @@ console.log(form)
            
           </div>
           <div className='newprofile-btn-container'>
-           <Button form="newprofile" value="Submit" /></div>
+           <Button className="btn" form="newprofile" value="Submit" /></div>
          
          </form> 
 
