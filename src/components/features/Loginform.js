@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Loginform = ({ className, type, id, placeholder, name, value, onChange  }) => {
+const Loginform = ({ className, type, id,  placeholder, name, value, onChange  }) => {
   return (
     
 				<input 
