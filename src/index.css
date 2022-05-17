@@ -280,22 +280,57 @@ padding-top: 20px;
 
 /* ============================ 7. BUTTONS & TAGS============================ */
 
-button {
+.btn {
   
   cursor:pointer;
   border-radius: 30px;
   border:none;
-  transition: .3s ease-out;
-  
   width: fit-content;
   background-color: var(--clr-blue);
   color:white;
   
   }
 
+
+
  .profile-tag {
    padding:0.4rem 1rem;
  }
+
+
+.tagButton {
+  background-color: var(--clr-grey-light);
+  color:black;
+  font-weight: 200;
+  margin: 10px;
+  padding: 12px;
+  border-radius: 30px;
+   width: fit-content;
+   cursor:pointer;
+   border:none;
+}
+
+.tagButton2 {
+background-color: var(--clr-blue);
+  color:white;
+  font-weight: 200;
+  margin: 10px;
+  padding: 12px;
+  border-radius: 30px;
+   width: fit-content;
+   cursor:pointer;
+   border:none;
+}
+
+
+/*.tagButton:focus{
+background-color: var(--clr-blue);
+  color:white;
+  font-weight: 200;
+  margin: 10px;
+  padding: 12px;
+  
+}*/
 
 /* ============================ 8. PAGES ============================ */
 
@@ -424,16 +459,12 @@ margin-bottom:70px;
   font-size: 1rem
 }
 
-.tagKaat-container {
+.tagButton-container {
   display:flex;
   justify-content: space-around;
   margin-top:10px;
 }
 
-.tagKaat {
-  background-color: var(--clr-blue);
-  color:white;
-}
 
 .rows {
   display:flex;
@@ -495,7 +526,7 @@ align-items: flex-start;
 
 .card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 1em;
   border-radius:20px;
   box-shadow: 3px 3px 5px #71CED6;
@@ -520,20 +551,6 @@ display: flex;
 align-self: end;}
 
   
-.tagKaat-container.start {
-  display:flex;
-  justify-content: space-around;
-  margin-top:10px;
-  flex-wrap: wrap;
-}
-
-.tagKaat.start {
-  background-color: var(--clr-grey-light);
-  color:black;
-  font-weight: 200;
-  margin: 10px;
-  padding: 12px;
-}
 
 
 /* ============================ 8.4. New Profile ============================ */
