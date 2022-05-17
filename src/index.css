@@ -14,7 +14,8 @@
   8.1. Register page
   8.2. Login page
   8.3. Detailed profile page
-  8.4. 
+  8.4. New profile
+  8.5 Bookmark
 
 */
 
@@ -587,7 +588,24 @@ align-items: flex-start;
   color: var(--clr-blue);
 }
 
+.projects-wrapper{
+  /* display:flex;
+  justify-content: space-between; */
+  /* gap:0.9rem;
+  overflow-x: auto;
+  overflow-y: hidden; */
+}
 
+.project-container{
+  /* display:flex;
+  flex-direction: column; */
+  
+}
+
+.project-pic{
+  height: 80px;
+  width: 140px;
+}
 
 
 /* ============================ 8.3. Startpage ============================ */
@@ -747,4 +765,24 @@ margin-left:20px;
 .profilesubmit{
   padding: 0.4rem 5rem;
   font-size:1rem;
+}
+
+/* ============================ 8.5. Bookmark ============================ */
+
+.bookmark-container {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+ margin-top:100px;
+ 
+}
+
+.bookmark-pic{
+  background-image: url(https://c.tenor.com/LfFCuR_C3rAAAAAM/sassy-cats.gif);
+  height: 300px;
+  width: 250px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* border:1px solid red; */
+
 }

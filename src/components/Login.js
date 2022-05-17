@@ -96,7 +96,7 @@ const handleSubmit = async (e) => {
       <hr/>
 
     </div>
-    <button className="password" type="submit" value="LOG IN"> Login </button>
+    <button className="btn password" type="submit" value="LOG IN"> Login </button>
 
     <p className="inner-label user">New user? <Link to="/register">Join us!</Link> </p>
 

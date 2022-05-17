@@ -153,7 +153,7 @@ const Register = (props) => {
 
 
 
-    <button  disabled={!validName || !validPwd || !validMatch ? true : false} className="password" type="submit" value="Register"> Register </button>
+    <button  disabled={!validName || !validPwd || !validMatch ? true : false} className="btn password" type="submit" value="Register"> Register </button>
     
     <p className="inner-label user">Already registered? <Link to="/login"> Log in!</Link> </p>
 

@@ -8,6 +8,7 @@ import { faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 import { faAt } from '@fortawesome/free-solid-svg-icons' 
 import Navbar from './features/Navbar'
 import profiledata from './profiledata.json'
+import Project from './features/Project'
 
 function Detailprofilepage() {
 
@@ -26,6 +27,12 @@ function Detailprofilepage() {
    return <button className='tagButton2'>{tag}</button> 
  })
 
+
+ let Projectlist = profile.projects.map((project, index) => {
+   return <Project projectinfo={project} key={`project_nbr_${index}`}  />
+  
+ })
+ 
   return (
    <>
       <div className='Detailprofilepage-container'>
@@ -40,7 +47,12 @@ function Detailprofilepage() {
         <div className='profilepage-resume-container'>
           <div className='projects-container'>
               <h4 className='profilepage-title'>Projects </h4>
-              <div className='profilepage-text'> *projects to come here*</div>
+              <div className='projects-wrapper'>
+                
+                {Projectlist}
+               
+              </div>
+              
           </div> 
   
           <div className='work-separator-line'></div> 
