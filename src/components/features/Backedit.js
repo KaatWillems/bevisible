@@ -1,15 +1,20 @@
 import React from 'react'
-import { useNavigate, useState} from 'react-router-dom';
-import Button from "./Button"
+// import { useNavigate, useState} from 'react-router-dom';
+import Back from './Back';
+import Edit from './Edit';
+// import Button from "./Button"
 
 function Backedit(props) {
- const navigate = useNavigate();
+ 
 
 
     return (
+
       <div className='backedit-container'>
-        <a onClick={() => navigate(-1)}>Back</a>
-        <a onClick={props.onClick}>Edit</a>
+        <Back />
+        <Edit onClick={props.onClick} />
+        
+        
     </div>
 
     )
