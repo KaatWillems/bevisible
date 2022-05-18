@@ -49,9 +49,10 @@ const handleSubmit = async (e) => {
     <p className='p-success'>
       Your next step is to create a profile.
       </p>
-      <br />
-      <button> <Link to="/newprofile" className='succes-create-profile-btn'>Create profile</Link> </button>
-      <p className='p-home'> <Link to="/">Already have a profile? Go explore the home page</Link> </p>
+     
+       <Link to="/newprofile" className='succes-create-profile-btn'>Create profile</Link> 
+      <p className='p-home'> Do you already have a profile?  <br />Go explore the Students: </p>
+      <Link to="/home" className='link-home succes-create-profile-btn'> Home page</Link> 
     
     </section>
     
@@ -98,7 +99,7 @@ const handleSubmit = async (e) => {
     </div>
     <button className="btn password" type="submit" value="LOG IN"> Login </button>
 
-    <p className="inner-label user">New user? <Link to="/register">Join us!</Link> </p>
+    <p className="inner-label user ">New user? <Link to="/register" className='a'>Join us!</Link> </p>
 
      </form> 
 
