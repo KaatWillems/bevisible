@@ -7,20 +7,21 @@ import project3 from '../../images/project3.png'
 function Project(props) {
   return (
  <>
-        <div className='project-container'>
+        <div className='project-container'>    
+          
 
-       
-            <img src={`/static/media/${props.projectinfo.picture}`} 
-            alt="projectpic" className='project-pic' />
+            {/* img in the public folder: */}
+            <a href={props.projectinfo.link} target="_blank">
+                <img src={`/../../../${props.projectinfo.picture}`} 
+                alt="projectpic" className='project-pic' />
+            </a>
 
             {/* <img src={project1}
             className='project-pic' /> */}
 
 
+            <p className='project-p'>{props.projectinfo.title}</p>
 
-            <p>{props.projectinfo.title}</p>
-
-            {/* <p>{props.projectinfo.projects.link}</p> */}
         </div>
       
  </>
