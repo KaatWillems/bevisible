@@ -11,9 +11,15 @@ import profiledata from './profiledata.json'
 import { faUpload } from '@fortawesome/free-solid-svg-icons' 
 import Button from './features/Button'
 import Popup from './features/Popup'
-
+import Header from './features/Header'
 import Project from './features/Project'
 import Inputfield from './features/Inputfield'
+import PopupProjects from './features/PopupProjects'
+import PopupAbout from './features/PopupAbout'
+import PopupTags from './features/PopupTags'
+import PopupWork from './features/PopupWork'
+import PopupEducation from './features/PopupEducation'
+import PopUpInterests from './features/PopUpInterests'
 
 function Detailprofilepage() {
 
@@ -26,11 +32,18 @@ function Detailprofilepage() {
 
   //   console.log(profiledata)
   //
-  const [form, setForm] = useState("");
+  const [form, setForm] = useState(""); 
 
-  const [profile, setProfile] = useState(profiledata[0])
+  const [profile, setProfile] = useState(profiledata[0]) 
 
-  let Tagsbutton = profile.tags.map((tag, index) => {
+  console.log(profile)
+
+ //  let Tagsbutton = profile.tags.map((tag, index) => {
+ //   return <button className='tagButton2'>{tag}</button> 
+ // })
+
+
+    let Tagsbutton = profile.tags.map((tag, index) => {
    return <button className='tagButton2'>{tag}</button> 
  })
 
@@ -46,18 +59,32 @@ function makeAppear() {
 
 const [isOpen, setIsOpen] = useState(false)
 const[isOpen1, setIsOpen1] = useState(false)
+const[isOpen2, setIsOpen2] = useState(false)
+const[isOpen3, setIsOpen3] = useState(false)
+const[isOpen4, setIsOpen4] = useState(false)
+const[isOpen5, setIsOpen5] = useState(false)
 
 const togglePopUp = (popUp) => {
   console.log("ca a marché")
   if(popUp === "projects") {
     setIsOpen(!isOpen)
   }
-  else if(popUp === "About"){
+  if(popUp === "About"){
     setIsOpen1(!isOpen1)
   }
-  
-} 
-
+  if(popUp === "Tags"){
+    setIsOpen2(!isOpen2)
+  }
+  if(popUp === "Work"){
+    setIsOpen3(!isOpen3)
+  }
+  if(popUp === "Education"){
+    setIsOpen4(!isOpen4)
+  } 
+  if(popUp === "Interests"){
+    setIsOpen5(!isOpen5)
+  }
+}
 
  let Projectlist = profile.projects.map((project, index) => {
    return <Project projectinfo={project} key={`project_nbr_${index}`}  />
@@ -66,21 +93,6 @@ const togglePopUp = (popUp) => {
 
 
 
- const handleChange = event => {
-    const target = event.target                              
-   event.preventDefault(); 
-   setForm({...form, [target.name]: target.value})
-  
-   // const {name, value} = event.target.value; 
-   // setValue({...values, [name]: value,})
-
-
-}
-
-const handleSubmit = event => {
-event.preventDefault();
-console.log(form)
-}
 
  //Bookmarks
 //  codes comes here
@@ -103,41 +115,10 @@ console.log(form)
 
               <h4 className='profilepage-title'>Projects { show ? <input type="Button" onClick={() => togglePopUp("projects")} value="Edit" className='btn edit' /> : null } </h4>
              <div> {isOpen && <Popup
-      content={<>
-        <h2>Edit, delete or add projects</h2> 
-         <form  onSubmit={handleSubmit} id="newprofile">
-         <div className='newprofile-wrapper projects-'>
-          <div className='input-container'>
-            <div className="newprofile-uploadinput-container">
-              <input
-                className="newprofile-uploadinput"
-                id="uploadfile"
-                name="uploadfile"
-                type="file"
-                placeholder="Upload a project picture"
-              />
-              <label for="uploadfile" className="upload-icon-label">  <FontAwesomeIcon icon={faUpload} className='upload-icon'/> <br /> Upload picture  </label>
-              </div>
-              <Inputfield 
-              name="projectlink"  
-              value={form.projectlink} 
-              onChange={handleChange}  
-              placeholder="Add project link" 
-              className="newprofile-input" />
-              
-              <Inputfield 
-              name="projecttitle"  
-              value={form.projecttitle} 
-              onChange={handleChange}  
-              placeholder="Add project title" 
-              className="newprofile-input" />
-                </div>
-                 </div> 
-                 </form>  
-                 {Projectlist} 
-      </>}
-      handleClose={() => togglePopUp("projects")}
-    />} </div>
+                    content={<PopupProjects /> }
+                    handleClose={() => togglePopUp("projects")}
+            />} 
+            </div>
           
               <div className='projects-wrapper'>
                 
@@ -157,23 +138,27 @@ console.log(form)
               <div className='aboutme-text profilepage-text'>  </div>
 
               <div> {isOpen1 && <Popup
-      content={<>
-        <h2>Edit your description</h2> 
-         
-                <div>  {profile.about} </div>
-      </>}
+      content={<PopupAbout />}
       handleClose={() => togglePopUp("About")}
     />} </div>
               
               {/* change to tag component Charlotte: */}
               <div className='tagKaat-container'>
-               {Tagsbutton} { show ? <Button value="Edit" className='btn edit' /> : null } </div>
+               {Tagsbutton} { show ? <input  type="button" value="Edit" onClick={() => togglePopUp("Tags")} className='btn edit' /> : null } </div>
           </div>
+          <div> {isOpen2 && <Popup
+      content={<PopupTags />}
+      handleClose={() => togglePopUp("Tags")}
+    />} </div>
   
           <div className='work-container'>
-              <h4 className='profilepage-title'>Working experience { show ? <Button value="Edit"  className='btn edit' /> : null } </h4>
+              <h4 className='profilepage-title'>Working experience { show ? <input type="button" value="Edit" onClick={() => togglePopUp("Work")}  className='btn edit' /> : null } </h4>
               <div className='rows'>
-  
+              <div> {isOpen3 && <Popup
+              content={<PopupWork />}
+              handleClose={() => togglePopUp("Work")}
+            />} </div>
+          
                   <div className='row work1'>
                     <div className='profilepage-text'> {profile.work[0].jobposition} </div>
                     <div className='duration'>{profile.work[0].duration}</div>
@@ -190,7 +175,7 @@ console.log(form)
   
   
           <div className='education-container'>
-              <h4 className='profilepage-title'>Education { show ? <Button value="Edit"  className='btn edit' /> : null } </h4>
+              <h4 className='profilepage-title'>Education { show ? <input value="Edit" type="button" onClick={() => togglePopUp("Education")} className='btn edit' /> : null } </h4>
              <div className='rows'>
                 <div className='row education1'>
                       <div className='profilepage-text'> {profile.education[0].school} </div>
@@ -198,14 +183,21 @@ console.log(form)
                     </div>
              </div>
           </div>
+          <div> {isOpen4 && <Popup
+              content={<PopupEducation />}
+              handleClose={() => togglePopUp("Education")}
+            />} </div>
   
   
           <div className='interest-container'>
-             <h4 className='profilepage-title'>Interests { show ? <Button value="Edit"  className='btn edit' /> : null } </h4>
+             <h4 className='profilepage-title'>Interests { show ? <input value="Edit" type="button" onClick={() => togglePopUp("Interests")} className='btn edit' /> : null } </h4>
              <div className='profilepage-text'> {profile.interests} </div>
           </div>
-  
-  
+             <div> {isOpen5 && <Popup
+                    content={<PopUpInterests />}
+                    handleClose={() => togglePopUp("Interests")}
+                  />} </div>
+        
           <div className='appraisal-container'>
               <h4 className='profilepage-title'>Appraisals</h4>
               <div className='rows'>
