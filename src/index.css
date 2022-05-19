@@ -137,6 +137,8 @@ h3 {
   /* letter-spacing: 1px; */
 }
 
+
+
 /* ============================ 4. HEADER & NAVBAR ============================ */
 
 /* ============================ 4.1. Header ============================ */
@@ -356,6 +358,13 @@ background-color: var(--clr-blue);
    cursor:pointer;
    border:none;
 }
+
+.btn.edit.popup {
+  height: 25px;
+  justify-content: center;
+  display: flex;
+}
+
 
 
 /*.tagButton:focus{
@@ -883,3 +892,9 @@ margin-left:20px;
   text-align: center;
   border: 1px solid #999;
   font-size: 20px; }
+
+
+  h4.addTag {
+  margin-left: 15px;
+
+}
