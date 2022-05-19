@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons' 
+import { faFilter } from '@fortawesome/free-solid-svg-icons' 
 import Filter from '../Filter'
 import Button from './Button'
 
@@ -45,7 +46,7 @@ const displayFilter = (filter) => {
     <div> 
     {/* <Filter className="filter" onClick={displayFilter}  /> */}
 
-    <Button className="filter" value="Filter" onClick={displayFilter}  /> 
+    <FontAwesomeIcon icon={faFilter}className="filter" value="Filter" onClick={displayFilter}  /> 
      
      
    

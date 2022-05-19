@@ -4,7 +4,7 @@ const Location = (props) => {
   return (
   	<>
     <div className="location"> 
-    <h4> Located in Berlin </h4>
+    <p className='location-h4'> Located in Berlin </p>
     </div>
     </>
   )
