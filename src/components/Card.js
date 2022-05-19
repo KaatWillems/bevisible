@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
  import pic1 from '../images/profile1.png'
+ import pic2 from '../images/profile2.png'
 import Tags from './features/Tags'
 import Location from './features/Location'
 
@@ -13,6 +14,7 @@ let Tagslist = props.cardinfo.tags.map((tag, index) => {
 
 
   return (
+
     
     //  
     // {c.cards.map((card) => (
@@ -20,7 +22,7 @@ let Tagslist = props.cardinfo.tags.map((tag, index) => {
   
     <container className="card">
     <div className='Pic-name-container'>
-    <img src={pic1} alt="profilepic" className='profilepic'/>
+    <img src={`/../../../${props.cardinfo.picture}`} alt="profilepic" className='profilepic'/>
     <h4 className='profilepage-name'>{props.cardinfo.name} </h4>
     <h5 className='profilepage-subtitle'>{props.cardinfo.title}</h5>
     </div>

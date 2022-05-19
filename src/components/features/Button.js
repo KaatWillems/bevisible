@@ -4,7 +4,7 @@ function Button(props) {
 
 
   return (
-    <button type="submit" className={(props.className)}>{(props.value)}</button>
+    <button type="submit" className={(props.className)} onClick={props.onClick}>{(props.value)}  </button>
     
   )
 }

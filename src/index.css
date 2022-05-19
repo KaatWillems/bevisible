@@ -304,6 +304,36 @@ input {
 display: flex;
 margin-right: 30px;
 padding-top: 20px;
+border: none;
+background-color:white;
+cursor:pointer;
+color: rgb(73, 70, 70);
+font-size:12pt;
+}
+
+.filter:hover{
+  text-decoration:underline;
+}
+
+.filter:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  /* padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%; */
+  opacity: 0;
+  transition: all 0.8s
+}
+
+
+.filter:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
 }
 
 /* ============================ 7. BUTTONS & TAGS============================ */
@@ -531,12 +561,13 @@ margin-top:20px;
   display:flex;
   flex-direction: column;
   align-items: center;
-
+  
 }
 
 .profilepic {
   height: 130px;
   width: 130px;
+  border-radius:50%;
 }
 
 .profilepage-name {

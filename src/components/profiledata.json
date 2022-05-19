@@ -50,9 +50,9 @@
             } 
     },
      {
-        "picture": "profile1.png",
-        "name": "Katlotte Smith",
-        "title": "Junior Front End  Developer",
+        "picture": "profile2.png",
+        "name": "Katarlotte Smith",
+        "title": "Front End  Developer",
         "projects":[{
           "picture": "project2.png",
           "title": "2Python To Do",
@@ -69,9 +69,9 @@
             "link": "https://www.google.com"      
           }
         ] ,
-        "about": "Full Stack Web Dev in the making. Student at Becode, currently looking for internship Aug & Sep",
+        "about": "Front End Web Dev in the making. Student at Becode, currently looking for internship Aug & Sep",
         "searching": "open to work",
-        "tags": ["Javascript", "React", "Python"],
+        "tags": ["CSS", "React", "Javascript"],
         "work": [{
             "jobposition": "BeCode Web Developer Trainee",
             "duration": "7 months"
