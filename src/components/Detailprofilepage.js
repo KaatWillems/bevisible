@@ -6,6 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons' 
 import { faGithubSquare } from '@fortawesome/free-brands-svg-icons' 
 import { faAt } from '@fortawesome/free-solid-svg-icons' 
+import { faBriefcase } from '@fortawesome/free-solid-svg-icons'
+import { faBuilding } from '@fortawesome/free-solid-svg-icons'
+import { faBasketball } from '@fortawesome/free-solid-svg-icons'
 import Navbar from './features/Navbar'
 import profiledata from './profiledata.json'
 import { faUpload } from '@fortawesome/free-solid-svg-icons' 
@@ -105,7 +108,17 @@ const togglePopUp = (popUp) => {
         <Backedit onClick={makeAppear}  />
   
         <div className='Pic-name-container'>
-            <img src={pic1} alt="profilepic" className='profilepic'/>
+           <div className="socialsimages">  <img src={pic1} alt="profilepic" className='profilepic'/>
+
+             { show ? <Button value="Edit" className='btn edit' /> : null } 
+            <div className='icon-wrapper'>
+                <div className='icon-kaat'><FontAwesomeIcon icon={ faAt }/></div>
+                <div className='icon-kaat'><FontAwesomeIcon icon={faLinkedin}/></div>
+                <div className='icon-kaat'><FontAwesomeIcon icon={faGithubSquare}/></div>
+                
+            </div>
+  
+           </div>
             <h4 className='profilepage-name'> {profile.name}</h4>
             <h5 className='profilepage-subtitle'>{profile.title}</h5>
         </div>
@@ -129,13 +142,13 @@ const togglePopUp = (popUp) => {
 
           </div> 
   
-          <div className='work-separator-line'></div> 
+         {/* <div className='work-separator-line'></div> */}
           
   
-          <div className='aboutme-container'>
+          <div className='projects-container'>
  
               <h4 className='profilepage-title'>About me  { show ? <input type="button" value="Edit"  onClick={() => togglePopUp("About")} className='btn edit' /> : null } </h4> 
-              <div className='aboutme-text profilepage-text'>  </div>
+              <div className='aboutme-text profilepage-text'> {profile.about} </div>
 
               <div> {isOpen1 && <Popup
       content={<PopupAbout />}
@@ -143,7 +156,7 @@ const togglePopUp = (popUp) => {
     />} </div>
               
               {/* change to tag component Charlotte: */}
-              <div className='tagKaat-container'>
+              <div className='tag-container'>
                {Tagsbutton} { show ? <input  type="button" value="Edit" onClick={() => togglePopUp("Tags")} className='btn edit' /> : null } </div>
           </div>
           <div> {isOpen2 && <Popup
@@ -151,8 +164,8 @@ const togglePopUp = (popUp) => {
       handleClose={() => togglePopUp("Tags")}
     />} </div>
   
-          <div className='work-container'>
-              <h4 className='profilepage-title'>Working experience { show ? <input type="button" value="Edit" onClick={() => togglePopUp("Work")}  className='btn edit' /> : null } </h4>
+          <div className='projects-container'>
+              <h4 className='profilepage-title'> <FontAwesomeIcon icon={faBriefcase} /> Working experience  { show ? <input type="button" value="Edit" onClick={() => togglePopUp("Work")}  className='btn edit' /> : null } </h4>
               <div className='rows'>
               <div> {isOpen3 && <Popup
               content={<PopupWork />}
@@ -174,8 +187,8 @@ const togglePopUp = (popUp) => {
           </div>
   
   
-          <div className='education-container'>
-              <h4 className='profilepage-title'>Education { show ? <input value="Edit" type="button" onClick={() => togglePopUp("Education")} className='btn edit' /> : null } </h4>
+          <div className='projects-container'>
+              <h4 className='profilepage-title'><FontAwesomeIcon icon={faBuilding} /> Education { show ? <input value="Edit" type="button" onClick={() => togglePopUp("Education")} className='btn edit' /> : null } </h4>
              <div className='rows'>
                 <div className='row education1'>
                       <div className='profilepage-text'> {profile.education[0].school} </div>
@@ -189,8 +202,8 @@ const togglePopUp = (popUp) => {
             />} </div>
   
   
-          <div className='interest-container'>
-             <h4 className='profilepage-title'>Interests { show ? <input value="Edit" type="button" onClick={() => togglePopUp("Interests")} className='btn edit' /> : null } </h4>
+          <div className='projects-container'>
+             <h4 className='profilepage-title'><FontAwesomeIcon icon={faBasketball} /> Interests { show ? <input value="Edit" type="button" onClick={() => togglePopUp("Interests")} className='btn edit' /> : null } </h4>
              <div className='profilepage-text'> {profile.interests} </div>
           </div>
              <div> {isOpen5 && <Popup
@@ -198,7 +211,7 @@ const togglePopUp = (popUp) => {
                     handleClose={() => togglePopUp("Interests")}
                   />} </div>
         
-          <div className='appraisal-container'>
+          <div className='projects-container appraisal'>
               <h4 className='profilepage-title'>Appraisals</h4>
               <div className='rows'>
                 <div className='row appraisal1'>
@@ -213,15 +226,7 @@ const togglePopUp = (popUp) => {
                 </div>    
           </div>
   
-          <div className='social-container'>
-            <h4 className='profilepage-title'>Connect with me { show ? <Button value="Edit" className='btn edit' /> : null } </h4>
-            <div className='icon-wrapper'>
-                <div className='icon-kaat'><FontAwesomeIcon icon={ faAt }/></div>
-                <div className='icon-kaat'><FontAwesomeIcon icon={faLinkedin}/></div>
-                <div className='icon-kaat'><FontAwesomeIcon icon={faGithubSquare}/></div>
-                
-            </div>
-  
+         
   
           </div>
   
@@ -230,7 +235,6 @@ const togglePopUp = (popUp) => {
         </div>
   
   
-      </div>
       <Navbar />
    </>
     

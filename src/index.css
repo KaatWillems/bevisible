@@ -148,7 +148,9 @@ h3 {
 .backedit-container {
   display:flex;
   justify-content: space-between;
- 
+ background: white;
+margin-bottom: 20px;
+padding-bottom: 20px;
 
  
 }
@@ -577,6 +579,16 @@ margin-top:20px;
 
 .Detailprofilepage-container {
   min-height: 100vh;
+ 
+
+}
+
+.socialsimages {
+   display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
 }
 
 .Pic-name-container{
@@ -590,6 +602,7 @@ margin-top:20px;
   height: 130px;
   width: 130px;
   border-radius:50%;
+  
 }
 
 .profilepage-name {
@@ -676,10 +689,10 @@ align-items: flex-start;
 }
 
 .icon-wrapper {
-  width: 60%;
+  
   display:flex;  
   justify-content: space-around;
-  margin-bottom:50px;
+ 
 }
 
 .icon-kaat {
@@ -693,13 +706,31 @@ align-items: flex-start;
    gap:0.9rem;
   overflow-x: auto;
   overflow-y: hidden;
+
 }
 
 .project-container{
   display:flex;
   flex-direction: column;
+ 
+  }
+
+  .projects-container{
+       padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 30px;
+  background-color: white;
   
-}
+  padding-top: 5px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  box-shadow: 3px 3px 5px #71CED6;
+  }
+
+  .projects-container.appraisal {
+    margin-bottom: 70px;
+
+  }
 
 .project-pic{
   height: 80px;
