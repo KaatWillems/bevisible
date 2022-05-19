@@ -11,6 +11,7 @@ import Newprofile from "./components/Newprofile";
 import Login from "./components/Login"
 import Register from  "./components/Register"
 import Bookmark from "./components/Bookmark";
+import Detailprofilecoach from "./components/Detailprofilecoach"
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<Login/>} />  
         <Route path="/register" element={<Register/>} />  
         <Route path="/bookmark" element={<Bookmark/>} /> 
+        <Route path="/profilecoach" element={<Detailprofilecoach/>} />
       </Routes>
     </BrowserRouter>
 
