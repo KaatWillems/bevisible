@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons' 
 import Filter from '../Filter'
+import Button from './Button'
 
 
 
 const Searchinput = () => {
+
+  const [openFilter, setOpenFilter] = useState(false)
+// function changeState() {
+//     setShow(!show);  
+// }
+
+const displayFilter = (filter) => {
+  setOpenFilter(!openFilter)
+}
+
+
+
+
+
+
+
+
   return (
           <>
 <div className="search-tools">
@@ -25,9 +43,20 @@ const Searchinput = () => {
     </div>
     </form>
     <div> 
-    <Filter className="filter" />
+    {/* <Filter className="filter" onClick={displayFilter}  /> */}
+
+    <Button className="filter" value="Filter" onClick={displayFilter}  /> 
+     
+     
+   
+
+  
+
     </div>
+   
+   
     </div>
+    <div> {openFilter && <Filter />}   </div>
 </>
   )
 }
