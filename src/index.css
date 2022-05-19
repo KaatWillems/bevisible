@@ -180,22 +180,26 @@ a {
 }
 
 
+
 .header-top {
 display: flex;
 flex-direction: column;
 align-items: center;
 padding-top: 20px;
-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)
+box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+
 }
 
 .header-title {
 margin-top: 1em;
 margin-bottom: 0em;
 
+
 }
 
 .header-subtitle {
   margin: 0em;
+
                 
 }
 /* ============================ 4.2. Navbar ============================ */
@@ -304,38 +308,47 @@ input {
 
 .filter {
 display: flex;
-margin-right: 30px;
+margin-right: 35px;
 padding-top: 20px;
 border: none;
 background-color:white;
 cursor:pointer;
-color: rgb(73, 70, 70);
-font-size:12pt;
+color: var(--clr-blue);
+font-size:16pt;
+
 }
 
 .filter:hover{
   text-decoration:underline;
 }
 
-.filter:after {
-  content: "";
-  background: #f1f1f1;
-  display: block;
-  position: absolute;
-  /* padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px !important;
-  margin-top: -120%; */
-  opacity: 0;
-  transition: all 0.8s
+
+.filter-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
+.filter-title{
+  font-weight: 600;
+  font-size:1rem;
+}
 
-.filter:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s
+.filter-skill-container {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.filter-by-title{
+  font-weight:400;
+}
+
+.filter-tags{
+  display:flex;
+  justify-content: center;
+  flex-wrap:wrap;
+  padding:20px;
 }
 
 /* ============================ 7. BUTTONS & TAGS============================ */
@@ -591,6 +604,8 @@ margin-top:20px;
   font-size: 0.9rem;
 }
 
+
+
 .profilepage-resume-container {
   margin-left: 25px;
   margin-right:25px;
@@ -702,12 +717,22 @@ align-items: flex-start;
 .card {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 1em;
   border-radius:20px;
   box-shadow: 3px 3px 5px #71CED6;
   justify-content: space-between;
+  width: 85vw;
+  
  
 
+}
+
+
+@media only screen and (min-width: 600px) {
+  .card{
+    width: 300px;
+  }
 }
 
 .cards-container {
@@ -716,16 +741,32 @@ align-items: flex-start;
   flex-wrap: wrap;
 justify-content: center;
 margin-top: 50px;
+margin-bottom:70px;
 
 }
+
 
 
 .location {
            
 display: flex;
-align-self: end;}
+align-self: end;
 
+}
+
+.location-h4{
+  font-weight: 500;
+  font-size:0.9rem;
+}
+
+.startpage-taglist{
+  /* width: 250px; */
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  /* border: 1px solid red; */
   
+}
 
 
 /* ============================ 8.4. New Profile ============================ */

@@ -26,7 +26,7 @@ let Tagslist = props.cardinfo.tags.map((tag, index) => {
     <h4 className='profilepage-name'>{props.cardinfo.name} </h4>
     <h5 className='profilepage-subtitle'>{props.cardinfo.title}</h5>
     </div>
-    <div> {Tagslist} </div>
+    <div className='startpage-taglist'> {Tagslist} </div>
     <Location />
      </container> 
     
