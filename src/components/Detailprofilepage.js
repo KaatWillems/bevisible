@@ -108,20 +108,24 @@ const togglePopUp = (popUp) => {
         <Backedit onClick={makeAppear}  />
   
         <div className='Pic-name-container'>
-           <div className="socialsimages">  <img src={pic1} alt="profilepic" className='profilepic'/>
+          
+           <div className="socialsimages"> 
+              <img src={`/../../../${profile.picture}`}  alt="profilepic" className='profilepic'/>
 
-             { show ? <Button value="Edit" className='btn edit' /> : null } 
-            <div className='icon-wrapper'>
+                { show ? <Button value="Edit" className='btn edit' /> : null } 
+              <div className='icon-wrapper'>
                 <div className='icon-kaat'><FontAwesomeIcon icon={ faAt }/></div>
                 <div className='icon-kaat'><FontAwesomeIcon icon={faLinkedin}/></div>
                 <div className='icon-kaat'><FontAwesomeIcon icon={faGithubSquare}/></div>
-                
-            </div>
-  
+              </div>  
            </div>
+
             <h4 className='profilepage-name'> {profile.name}</h4>
-            <h5 className='profilepage-subtitle'>{profile.title}</h5>
+            <h5 className='profilepage-subtitle-darker'>{profile.title}</h5>
+            
         </div>
+
+
         {/* Resume from projects - social media icons: */}
         <div className='profilepage-resume-container'> 
           <div className='projects-container'>
