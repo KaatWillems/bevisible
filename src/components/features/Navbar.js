@@ -16,10 +16,10 @@ function Navbar() {
             <p className='text-icon-nav'>Explore</p>
             </Link>    
 
-        <Link to="/bookmark" className='navbar-icon proot-icon'>
+        {/* <Link to="/bookmark" className='navbar-icon proot-icon'>
         <FontAwesomeIcon icon={faBookmark} />
         <p className='text-icon-nav'>Bookmarks</p>
-        </Link>
+        </Link> */}
 
         <Link to="/profile" className='navbar-icon profile-icon'>
         <FontAwesomeIcon icon={faUser} />

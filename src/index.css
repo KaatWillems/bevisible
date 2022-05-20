@@ -28,6 +28,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+
+
 :root {
 
   --clr-blue: hsl(185, 55%, 64%) ;
@@ -148,8 +150,8 @@ h3 {
 .backedit-container {
   display:flex;
   justify-content: space-between;
- background: white;
-margin-bottom: 20px;
+ /* background: var(--clr-blue); */
+margin-bottom: 0px;
 padding-bottom: 20px;
 
  
@@ -167,18 +169,22 @@ a {
 
 .a-back{
   text-decoration: none;
-  color:var(--clr-blue);
+ color:var(--clr-blue);
+ /* color:white; */
   cursor:pointer;
-  margin-top:30px;
+  margin-top:25px;
   margin-left:30px;
+  font-weight: 600;
 }
 
 .a-edit{
   text-decoration: none;
   color:var(--clr-blue);
+  /* color:white; */
   cursor:pointer;
-  margin-top:30px;
+  margin-top:25px;
   margin-right:30px;
+  font-weight: 600;
 }
 
 
@@ -215,7 +221,10 @@ margin-bottom: 0em;
   position:fixed;
   bottom: 0;
   background-color: var(--clr-blue);
-  border-top: 0.5px solid var(--clr-grey-light)
+  border-top: 0.5px solid var(--clr-grey-light);
+  padding-left:10%;
+  padding-right:10%;
+ 
 }
 
 .navbar-icon {
@@ -225,15 +234,11 @@ margin-bottom: 0em;
   margin-top:5px;
   color:white;
   text-decoration:none;
+  font-size:1rem;
+
+  
 }
 
-.navbar-icon {
-  display:flex;
-  flex-direction: column;
-  align-items: space-around;
-  margin-top:5px;
-  color:white;
-}
 
 .text-icon-nav{
   font-size: 9pt;
@@ -350,7 +355,7 @@ font-size:16pt;
   display:flex;
   justify-content: center;
   flex-wrap:wrap;
-  padding:20px;
+  padding:5px 20px 25px 20px;
 }
 
 /* ============================ 7. BUTTONS & TAGS============================ */
@@ -377,6 +382,15 @@ font-size:16pt;
  .profile-tag {
    padding:0.4rem 1rem;
    
+ }
+
+ .btn-big {
+   padding: 0.7rem 1.5rem;
+   font-size: 1rem;
+ }
+
+ .m-b-30{
+   margin-bottom:30px;
  }
 
 
@@ -587,6 +601,7 @@ margin-top:20px;
    display: flex;
   flex-direction: column;
   justify-content: center;
+  
 
 
 }
@@ -595,14 +610,21 @@ margin-top:20px;
   display:flex;
   flex-direction: column;
   align-items: center;
+
+  background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.7)), url(/public/desk.png); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px 0px
   
 }
+
+
 
 .profilepic {
   height: 130px;
   width: 130px;
   border-radius:50%;
-  
+ 
 }
 
 .profilepage-name {
@@ -617,11 +639,16 @@ margin-top:20px;
   font-size: 0.9rem;
 }
 
+.profilepage-subtitle-darker {
+  font-weight: 300;
+  color: rgb(87, 85, 85);
+  font-size: 0.9rem;
+}
 
 
 .profilepage-resume-container {
-  margin-left: 25px;
-  margin-right:25px;
+  margin-left: 23px;
+  margin-right:23px;
   margin-top:10px;
 }
 
@@ -646,6 +673,11 @@ margin-top:20px;
   margin-top:10px;
 }
 
+.tag-container {
+  display:flex;
+  justify-content: center;
+  flex-wrap:wrap;
+}
 
 .rows {
   display:flex;
@@ -656,10 +688,12 @@ margin-top:20px;
 display:flex;
 justify-content: space-between;
 margin-bottom: 5px;
+
 }
 
 .duration {
   color:grey;
+  margin-right:-5px;
 }
 
 .work-separator-line {
@@ -674,6 +708,7 @@ margin-bottom: 5px;
     height: 30px;
     /* border: 1px solid red; */
     align-self:center;
+    margin-left:-10px;
 
 }
 
@@ -692,12 +727,15 @@ align-items: flex-start;
   
   display:flex;  
   justify-content: space-around;
- 
+ /* border:1px solid red; */
 }
 
 .icon-kaat {
   font-size: 18pt;
+  width: 25px;
   color: var(--clr-blue);
+  /* display:flex;  
+  justify-content: center; */
 }
 
 .projects-wrapper{
@@ -718,14 +756,22 @@ align-items: flex-start;
   .projects-container{
        padding-left: 20px;
   padding-right: 20px;
-  border-radius: 30px;
+
   background-color: white;
-  
+    border-radius: 30px;
   padding-top: 5px;
   padding-bottom: 10px;
   margin-top: 20px;
-  box-shadow: 3px 3px 5px #71CED6;
-  }
+  /* box-shadow: 3px 3px 5px #71CED6; */
+  
+  border: 1px solid;
+  border-color:#71CED6 ;
+  /* box-shadow: 1px 1px 5px #cccccc, -1px -1px 5px #cccccc; */
+
+
+  
+  }  
+
 
   .projects-container.appraisal {
     margin-bottom: 70px;
@@ -760,6 +806,7 @@ align-items: flex-start;
 }
 
 
+
 @media only screen and (min-width: 600px) {
   .card{
     width: 300px;
@@ -775,8 +822,18 @@ margin-top: 50px;
 margin-bottom:70px;
 
 }
+.no-underline {
+  text-decoration:none;
+  color:black;
+}
 
+.startpage-Pic-name-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 
+  
+}
 
 .location {
            
@@ -798,6 +855,8 @@ align-self: end;
   /* border: 1px solid red; */
   
 }
+
+
 
 
 /* ============================ 8.4. New Profile ============================ */

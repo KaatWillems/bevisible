@@ -3,6 +3,7 @@ import React, {useState} from 'react';
  import pic2 from '../images/profile2.png'
 import Tags from './features/Tags'
 import Location from './features/Location'
+import { Link } from 'react-router-dom';
 
 const Card = (props) => {
 
@@ -19,13 +20,16 @@ let Tagslist = props.cardinfo.tags.map((tag, index) => {
     //  
     // {c.cards.map((card) => (
 <>
-  
+
     <container className="card">
-    <div className='Pic-name-container'>
+    <Link to="/profile" className='no-underline'>
+    <div className='startpage-Pic-name-container'>
     <img src={`/../../../${props.cardinfo.picture}`} alt="profilepic" className='profilepic'/>
     <h4 className='profilepage-name'>{props.cardinfo.name} </h4>
     <h5 className='profilepage-subtitle'>{props.cardinfo.title}</h5>
     </div>
+    </Link>
+    
     <div className='startpage-taglist'> {Tagslist} </div>
     <Location />
      </container> 
