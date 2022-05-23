@@ -14,13 +14,18 @@ const Coachdashboard = (props) => {
 			   
 			    <div className="newprofile-container"> 
 			    	<h4 class="newprofile-subtitle"> New profiles to validate </h4>
-			    	<div className='projects-container dashboard'> 
+
+
+			    	<div className='pprojects-container dashboard'> 
+					
 			    		<div className='dashboard-Pic-name-container'>
 			   				 <img src={pic1} alt="profilepic" className='profilepic dash'/>
 								<h5 className="newname"> Kaalotte Smith </h5>
 						</div>
+						<div className='dashboard-separator-line '></div>
 				
-							<div className="promotion">  <label for="promotion">Choose a promotion:</label>
+							<div className="promotion"> 
+							 <label for="promotion">Choose a promotion:</label>
 										<select id="promotion" name="promotion">
 										  <option value="1">1</option>
 										  <option value="2">2</option>
@@ -28,6 +33,7 @@ const Coachdashboard = (props) => {
 										  <option value="4">4</option>
 										</select>  
 																	</div> 
+																	<div 	className='dashboard-separator-line '></div>
 				
 								<div className="dashboardbtncontainer"> 
 									{/*<button className="btn coachdash assign"> Assign promotion </button>*/}
@@ -37,19 +43,22 @@ const Coachdashboard = (props) => {
 			    
 			    	
 
-	   			 <div className='projects-container dashboard'> 
+	   			 <div className='pprojects-container dashboard'> 
 	   				 <div className='dashboard-Pic-name-container'>
 					    <img src={pic1} alt="profilepic" className='profilepic dash'/>
 						<h5 className="newname"> Kaalotte Smith </h5>
 					</div>
-						<div className="promotion">  <label for="promotion">Choose a promotion:</label>
-										<select id="promotion" name="promotion">
-										  <option value="1">1</option>
-										  <option value="2">2</option>
-										  <option value="3">3</option>
-										  <option value="4">4</option>
-										</select>  
+					<div 	className='dashboard-separator-line '></div>
+						<div className="promotion">  <label 		for="promotion">Choose a promotion:</label>
+						<select id="promotion" name="promotion">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>  
 																	</div>  
+
+																	<div 	className='dashboard-separator-line '></div>
 							<div className="dashboardbtncontainer"> 
 								{/*<button className="btn coachdash assign"> Assign promotion </button>*/}
 								<button className="btn coachdash">  Validate </button>

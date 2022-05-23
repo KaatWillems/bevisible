@@ -1068,51 +1068,65 @@ margin-left:20px;
 /* ============================ 8.7. Coach Dashboard ============================ */
 
 
-.projects-container.dashboard {
+.pprojects-container {
   display: flex;
 flex-direction: row;
 width: 90vw;
-align-items: center;
+justify-content: space-around;
+margin:15px;
+
+padding-top: 15px;
+padding-bottom: 15px;
+border-radius: 30px; 
+border: 1px solid;
+border-color:#71CED6 ;
+  
+
 }
 
 .dashboardbtncontainer {
   display: flex;
 flex-direction: column;
 justify-content: center;
-margin-left: 10px;
+align-items:space-around;
+/* margin-left: 10px; */
 }
 
 .btn.coachdash{
-  height: 40px;
-  width: 100px;
-  margin:  5px;
+  /* height: 40px;
+  width: 100px; */
+  /* margin:  2px; */
+  padding: 5px 15px;
 }
 
 
 .dashboard-Pic-name-container {
-display: flex;
+display: flex;flex-direction: column;
 align-items: center;
-
-  height: 100%;
-  flex-direction: column;
-padding-right: 3px;
-padding-top: 12px;
+/* justify-content: center; */
+/* border: 1px solid red; */
+  /* height: 100%; */  
+/* padding-right: 3px;
+padding-top: 12px; */
 
 }
 
 
 .promotion {
-    border-right: solid;
-    border-left: solid;
-  height: 100%;
   display: flex;
-  align-items: center;
-  text-align: center;
-border-right-color: #F2F2F2;
+ flex-direction: column; align-items: center;
+ justify-content: center;
+  text-align: center; font-size:0.9rem;/*border-right: solid; */
+    /* border-left: solid; */
+  /* height: 100%; */
+  
+/* border-right-color: #F2F2F2;
 border-right-width: 2px;
 border-left-color: #F2F2F2;
-border-left-width: 3px;
-flex-direction: column;
+border-left-width: 3px; */
+/* padding: 2px 15px; */
+
+
 }
 
 
@@ -1125,13 +1139,17 @@ border-radius: 50%;
 
 .newprofile-container {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding-top: 20px; }
+  flex-direction:column;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  padding-top: 40px; 
+
+}
 
 .newname {
-  width: max-content;
+  /* width: max-content; */
   text-align: center;
+ 
 }
 
 .a-edit.dashboard {
@@ -1146,3 +1164,12 @@ border-radius: 50%;
 padding-top: 20px;
 
 }
+
+
+.dashboard-separator-line {
+  background-color: lightgray;
+   /* align-self:center; */
+   width: 1px;
+   
+   /* margin-bottom: 5px; */
+ }
