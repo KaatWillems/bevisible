@@ -12,6 +12,7 @@ import Login from "./components/Login"
 import Register from  "./components/Register"
 import Bookmark from "./components/Bookmark";
 import Detailprofilecoach from "./components/Detailprofilecoach"
+import Coachdashboard from "./components/Coachdashboard"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/register" element={<Register/>} />  
         <Route path="/bookmark" element={<Bookmark/>} /> 
         <Route path="/profilecoach" element={<Detailprofilecoach/>} />
+        <Route path="/dashboard" element={<Coachdashboard/>} />
       </Routes>
     </BrowserRouter>
 
