@@ -461,6 +461,10 @@ background-color: var(--clr-blue);
   color: white !important;
   font-weight: 600;
 }
+
+.radio-wrapper{
+  display:flex
+}
 /* ============================ 8.2. Login page ============================ */
 
 
@@ -940,7 +944,7 @@ align-self: end;
 .newprofile-uploadinput {
   
  display:none;
-  
+
 
 }
 

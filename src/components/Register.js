@@ -70,6 +70,15 @@ const Register = (props) => {
     setSuccess(true);
   }
 
+  //CHECKBOX student/comp
+  // const [checked, setChecked] = useState();
+
+  // const handleChangeRadio = (e) => {
+  //   console.log(e.target.value);
+  //   setChecked(e.target.value);
+  //   // setChecked(!checked);
+    
+  // };
 
 
   return (
@@ -151,8 +160,7 @@ const Register = (props) => {
       </p>
     </div>
 
-
-
+      
     <button  disabled={!validName || !validPwd || !validMatch ? true : false} className="btn password" type="submit" value="Register"> Register </button>
     
     <p className="inner-label user">Already registered? <Link to="/login" className='a'> Log in!</Link> </p>
