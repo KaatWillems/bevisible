@@ -223,7 +223,7 @@ const togglePopUp = (popUp) => {
                       <div className='name- comment-wrapper'>
                         <div className='name-appraisal'> Coach Snoop Diogo
                         </div>
-                        <div className='profilepage-text'> Pretty shit student tbh </div>
+                        <div className='profilepage-text'> Ok. </div>
                         </div>
                       <div className='duration'>2 months ago</div>
                     </div>
@@ -246,3 +246,5 @@ const togglePopUp = (popUp) => {
 }
 
 export default Detailprofilepage
+
+

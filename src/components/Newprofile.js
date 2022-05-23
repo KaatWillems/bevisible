@@ -5,11 +5,12 @@ import Button from './features/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpload } from '@fortawesome/free-solid-svg-icons' 
 import Navbar from './features/Navbar'
-
+import Axios from 'axios'
 
 
 
 const initialValues = {
+  picture: "",
   name: "", 
   title: "",
   projectlink: "",
@@ -51,6 +52,21 @@ console.log(form)
    //  ...form, [event.target.name]: value
    //  })
    
+//CLOUDINARY UPLOAD PIC
+  const [imageSelected, setImageSelected] = useState();
+
+const uploadImage = () => {
+  console.log(imageSelected)
+  const formData = new FormData()
+  formData.append("file", imageSelected)
+  formData.append("upload_preset", "fth0jlhu")
+
+  Axios.post("https://api.cloudinary.com/v1_1/dwna6jxmr/image/upload", formData).then((response) => {
+ console.log(response);
+  })
+
+};
+
 
   
 
@@ -70,15 +86,20 @@ console.log(form)
               <input
                 className="newprofile-uploadinput"
                 id="uploadprofilepic"
-                name="uploadprofilepic"
+                name="picture"
+                value={form.picture}
                 type="file"
-                placeholder="Upload a profile picture"
+                placeholder="Choose a profile picture"
+                onChange={(event) => {setImageSelected(event.target.files[0]);
+                }}
               />
-               <div className='blue-circle'> <label htmlFor="uploadprofilepic" className='label-upload-profile-pic'>Upload profile picture</label></div> 
-              
+               <div className='blue-circle'> <label htmlFor="uploadprofilepic" className='label-upload-profile-pic'>Choose profile picture</label></div> 
+              <Button className='btn' value="Upload picture" onClick={uploadImage}/>
               
           </div>
-    
+    <img cloudName="dwna6jxmr" publicId="jcl2x1jdd1jdf2vdsevd" />
+
+  
   
           <div className='newprofile-wrapper name-title'>
             <div className='input-container'>    
