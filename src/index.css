@@ -1152,7 +1152,7 @@ border-radius: 50%;
  
 }
 
-.a-edit.dashboard {
+.dashboard {
   margin-right: 0px;
   margin-top: 0px;
 }
@@ -1166,6 +1166,18 @@ padding-top: 20px;
 }
 
 
+.new-promotion{
+  display: flex;
+  justify-content: space-around;
+width: 90%;
+}
+
+.promotion-input {
+  border: solid;
+  border-width: 1px;
+}
+
+
 .dashboard-separator-line {
   background-color: lightgray;
    /* align-self:center; */
@@ -1173,3 +1185,4 @@ padding-top: 20px;
    
    /* margin-bottom: 5px; */
  }
+
