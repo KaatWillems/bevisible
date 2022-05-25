@@ -3,21 +3,25 @@ import Loginform from './features/Loginform'
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
+//import { useNavigate } from 'react-router-dom';
 
 
 
-const Login = () => {
+const Login = ()  => {
 
   const userRef = useRef();
   const errRef = useRef();
-  const [token, setToken] = useState();
+  // const [token, setToken] = useState();
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
   // const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
-  const [username, setUsername] = useState()
-  const [password, setPassword] = useState()
+  //const navigate = useNavigate();
+
+
+  // const [username, setUsername] = useState()
+  // const [password, setPassword] = useState()
   //set focus on this when component loads
 
 //   useEffect(() => {
@@ -32,20 +36,41 @@ const Login = () => {
 //     setErrMsg('');
 // }, [user, pwd])
 
-const handleSubmit = async (e) => {
+const handleSubmit = (e) => {
   e.preventDefault();
   
-  async function loginUser(){
+  const loginUser = async (user, pwd) => {
+  
    await fetch("https://bevisible-backend.herokuapp.com/user/signin", {
-    mode: 'no-cors',
+    // mode: 'no-cors',
     method:'POST',
     headers:{
       'Content-Type':'application/json'
     }, 
-    body: JSON.stringify()
+    body: JSON.stringify({email: user, password: pwd})
   })
-  .then(data => data.json())
-} }
+  .then(response=> response.json())
+  .then((data) => {
+    console.log(data)
+   
+    
+    // setToken(true)
+    // token ? setSuccess(true) : null
+   // let token = data.accessToken
+    //setToken(data.accessToken);
+    // console.log(token)
+   
+    // if (token) {
+      setSuccess(true);
+    //   //navigate("success", { replace: true });
+    // }
+    //console.log(token)
+    
+  })
+ 
+  } 
+  loginUser(user, pwd)
+}
 
 // setUser('');
 //   setPwd('');
@@ -98,7 +123,7 @@ const handleSubmit = async (e) => {
       type="text"
       id="username"
       placeholder="Username"
-      name="username"
+      name="user"
       onChange={(e) => setUser(e.target.value)}
       />
             <hr/>
@@ -111,7 +136,7 @@ const handleSubmit = async (e) => {
       type="password"
       id="password"
       placeholder="Password"
-      name="password"
+      name="pwd"
       onChange={(e) => setPwd(e.target.value)} 
       />
       <hr/>

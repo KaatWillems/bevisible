@@ -18,7 +18,13 @@ import Coachdashboard from "./components/Coachdashboard"
 
 function App() {
 
+  const [token, setToken] = useState(true);
 
+
+
+  // if(!token) {
+  //   return <Login setToken={setToken} />
+  // }
 
 
   return (
@@ -31,7 +37,7 @@ function App() {
         <Route path="/home" element={<Startpage/>} /> 
         <Route path="/profile" element={<Detailprofilepage/>} />  
         <Route path="/newprofile" element={<Newprofile/>} />  
-        <Route path="/login" element={<Login/>} />  
+        <Route path="/login" element={<Login setToken={setToken}    />} />  
         <Route path="/register" element={<Register/>} />  
         <Route path="/bookmark" element={<Bookmark/>} /> 
         <Route path="/profilecoach" element={<Detailprofilecoach/>} />
