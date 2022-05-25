@@ -2,8 +2,7 @@ import React from 'react';
 import Loginform from './features/Loginform'
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from 'react';
-
-
+import PropTypes from 'prop-types'
 
 
 
@@ -11,34 +10,59 @@ const Login = () => {
 
   const userRef = useRef();
   const errRef = useRef();
- 
+  const [token, setToken] = useState();
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
-  const [errMsg, setErrMsg] = useState('');
+  // const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
-
+  const [username, setUsername] = useState()
+  const [password, setPassword] = useState()
   //set focus on this when component loads
+
 //   useEffect(() => {
 //     userRef.current.focus();
 // }, [])
 
   // empty out error messages if user or pw state is changed 
-useEffect(() => {
-    setErrMsg('');
-}, [user, pwd])
+
+
+
+// useEffect(() => {
+//     setErrMsg('');
+// }, [user, pwd])
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  
+  async function loginUser(){
+   await fetch("https://bevisible-backend.herokuapp.com/user/signin", {
+    mode: 'no-cors',
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json'
+    }, 
+    body: JSON.stringify()
+  })
+  .then(data => data.json())
+} }
+
+// setUser('');
+//   setPwd('');
+//   setSuccess(true);
+
+ 
+
+    // setData(data.message)
+
+
 
 
   // BACKEND SHOULD BE LINKED HERE. with AXIOS? and then you can delete the below:
-  console.log(user, pwd);
-  setUser('');
-  setPwd('');
-  setSuccess(true);
+  // console.log(user, pwd);
+ 
 
-}
+
 
   return (
   	<>
@@ -60,7 +84,6 @@ const handleSubmit = async (e) => {
 
     <div className='login-page'> 
 
-    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} >{errMsg}</p>
 
     <h1 className='login-text'> Login </h1> 
     
@@ -76,10 +99,8 @@ const handleSubmit = async (e) => {
       id="username"
       placeholder="Username"
       name="username"
-      value={user}
       onChange={(e) => setUser(e.target.value)}
       />
-     
             <hr/>
 
     </div>
@@ -91,7 +112,6 @@ const handleSubmit = async (e) => {
       id="password"
       placeholder="Password"
       name="password"
-      value={pwd}
       onChange={(e) => setPwd(e.target.value)} 
       />
       <hr/>
@@ -110,5 +130,9 @@ const handleSubmit = async (e) => {
     </>
   )
 }
+
+// Login.propTypes = {
+//   setToken: PropTypes.func.isRequired
+// }
 
 export default Login;
