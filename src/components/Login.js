@@ -37,6 +37,8 @@ const handleSubmit = async (e) => {
   setUser('');
   setPwd('');
   setSuccess(true);
+  // fetch to api (providing email and pw, and receiving succes (-> section)  )
+  // store tokenin general state. allows user to do fetches in futer and stay authenticated
 
 }
 
@@ -97,13 +99,14 @@ const handleSubmit = async (e) => {
       <hr/>
 
     </div>
-    <button className="btn password" type="submit" value="LOG IN"> Login </button>
+    <button className="btn password" type="submit" value="LOG IN"> Login </button> 
+   
 
     <p className="inner-label user ">New user? <Link to="/register" className='a'>Join us!</Link> </p>
 
      </form> 
 
-  </div>
+  </div>3
 
     </div>
     )}
