@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Detailprofilepage from "./components/Detailprofilepage";
 import Button from "./components/features/Button";
 import Inputfield from "./components/features/Inputfield";
-import React from "react"
+import React, {useState} from "react"
 import Startpage from "./components/Startpage"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Newprofile from "./components/Newprofile";
@@ -14,10 +14,18 @@ import Bookmark from "./components/Bookmark";
 import Detailprofilecoach from "./components/Detailprofilecoach"
 import Coachdashboard from "./components/Coachdashboard"
 
+
+
 function App() {
+
+
+
+
   return (
     <BrowserRouter>
+
       <Routes>
+
         <Route index element={<Login/>} /> 
         <Route path="*" element={<div>404 page not found</div>} />
         <Route path="/home" element={<Startpage/>} /> 

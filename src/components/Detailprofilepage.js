@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Backedit from './features/Backedit'
- import pic1 from '../images/profile1.png'
- import becodelogo from '../images/becodelogo.png'
+import pic1 from '../images/profile1.png'
+import becodelogo from '../images/becodelogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons' 
 import { faGithubSquare } from '@fortawesome/free-brands-svg-icons' 
@@ -26,9 +26,7 @@ import PopupEducation from './features/PopupEducation'
 import PopUpInterests from './features/PopUpInterests'
 
 function Detailprofilepage() {
-
-
-                              
+                             
   // useEffect(() => {
   //   // Replace ith API call
   //   const userData = profiledata
@@ -94,6 +92,7 @@ const togglePopUp = (popUp) => {
    return <Project projectinfo={project} key={`project_nbr_${index}`}  />
   
  })
+
 
 
 
