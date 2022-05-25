@@ -32,11 +32,12 @@ console.log(form)
                 <div className='row education1'>
                       <div className='profilepage-text'> {profile.education[0].school} </div>
                       <div className='duration'>{profile.education[0].graduation}</div>
-                    </div>
+                    <input type="button" value="Edit" className='btn edit popup'/> <input type="button" value="Delete" className='btn edit popup'/>
+                  </div>
 
 
           <div className='newprofile-wrapper eduaction-'>
-            <div className='newprofile-smalltitle'>Education</div>
+            <div className='newprofile-smalltitle'>Add another education</div>
             <div className='input-container'>
              
               <Inputfield 
