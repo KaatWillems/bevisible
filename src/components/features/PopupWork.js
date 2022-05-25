@@ -25,7 +25,7 @@ event.preventDefault();
 console.log(form)
 } 
 
-
+ 
 
 
 
@@ -35,6 +35,7 @@ console.log(form)
     	 <div className='row work1'>
                     <div className='profilepage-text'> {profile.work[0].jobposition} </div>
                     <div className='duration'>{profile.work[0].duration}</div>
+                     <input type="button" value="Edit" className='btn edit popup'/> <input type="button" value="Delete" className='btn edit popup'/> 
                   </div>
   
                   <div className='work-separator-line'></div> 
@@ -42,7 +43,11 @@ console.log(form)
                   <div className='row work2'>
                     <div className='profilepage-text'>{profile.work[1].jobposition}</div>
                     <div className='duration'>{profile.work[1].duration}</div>
+                      <input type="button" value="Edit" className='btn edit popup'/> <input type="button" value="Delete" className='btn edit popup'/>
                   </div>
+
+              <div className='newprofile-smalltitle'>Add another work experience</div>
+              <div className='work-separator-line'></div> 
                   <Inputfield 
               placeholder="Add job position" 
               className="newprofile-input"

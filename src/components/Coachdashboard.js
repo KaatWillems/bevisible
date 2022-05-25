@@ -18,11 +18,11 @@ const handleChange = event => {
     
 		    <div className="newprofile-top-container dashboard">
 
-		    	<h2 class="profilepage-name"> Hello Coach "Name" </h2>
+		    	<h2 class="profilepage-name dashboardcoach"> Hello Coach "Name" </h2>
 		    	 <div className="new-promotion"> 
 		    	<h4 className="dashboard"> Create a new promotion: </h4>
 		    	    <Inputfield name="promotion"
-				     value={form.promotion}
+				     value=""
 				     onChange={handleChange}
 				     type="text" 
 				     placeholder="Type here" 
@@ -43,7 +43,7 @@ const handleChange = event => {
 			   				 <img src={pic1} alt="profilepic" className='profilepic dash'/>
 								<h5 className="newname"> Kaalotte Smith </h5>
 						</div>
-						<div className='dashboard-separator-line '></div>
+						<div className='dashboard-separator-line'></div>
 				
 							<div className="promotion"> 
 							 <label for="promotion">Choose a promotion:</label>
@@ -54,8 +54,8 @@ const handleChange = event => {
 										  <option value="4">4</option>
 										</select>  
 																	</div> 
-																	<div 	className='dashboard-separator-line '></div>
-				
+																	
+				<div className='dashboard-separator-line'></div>
 								<div className="dashboardbtncontainer"> 
 									{/*<button className="btn coachdash assign"> Assign promotion </button>*/}
 									<button className="btn coachdash">  Validate </button>

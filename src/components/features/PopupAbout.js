@@ -15,7 +15,7 @@ const [profile, setProfile] = useState(profiledata[0])
     <>
         <h2>Edit your description</h2> 
          
-                <div>  {profile.about} </div>
+                <div contentEditable={true}>  {profile.about} </div>
       </>
   )
 }

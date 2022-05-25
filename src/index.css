@@ -692,6 +692,7 @@ margin-top:20px;
 display:flex;
 justify-content: space-between;
 margin-bottom: 5px;
+align-items: center;
 
 }
 
@@ -775,6 +776,10 @@ align-items: flex-start;
 
   
   }  
+
+  .profilepage-text.interests {
+    display: flex;
+  }
 
 
   .projects-container.appraisal {
@@ -1032,7 +1037,7 @@ margin-left:20px;
  
 .box {
   position: relative;
-  width: 70%;
+  max-width: 85%;
   margin: 0 auto;
   height: auto;
   max-height: 70vh;
@@ -1042,6 +1047,7 @@ margin-left:20px;
   padding: 20px;
   border: 1px solid #999;
   overflow: auto;
+  border-radius: 5%;
 }
  
 .close-icon {
@@ -1084,6 +1090,10 @@ border-color:#71CED6 ;
 
 }
 
+.newprofile-subtitle {
+  margin-bottom: 30px;
+}
+
 .dashboardbtncontainer {
   display: flex;
 flex-direction: column;
@@ -1103,6 +1113,8 @@ align-items:space-around;
 .dashboard-Pic-name-container {
 display: flex;flex-direction: column;
 align-items: center;
+font-size: 1em;
+font-weight: 300;
 /* justify-content: center; */
 /* border: 1px solid red; */
   /* height: 100%; */  
@@ -1114,18 +1126,20 @@ padding-top: 12px; */
 
 .promotion {
   display: flex;
- flex-direction: column; align-items: center;
+ flex-direction: column; 
+ align-items: center;
  justify-content: center;
-  text-align: center; font-size:0.9rem;/*border-right: solid; */
-    /* border-left: solid; */
-  /* height: 100%; */
+  text-align: center; 
+  /*border-right: solid; */
+   
+  /*height: 100%; */
   
 /* border-right-color: #F2F2F2;
 border-right-width: 2px;
 border-left-color: #F2F2F2;
-border-left-width: 3px; */
-/* padding: 2px 15px; */
-
+border-left-width: 2px; 
+padding: 2px 15px; 
+*/
 
 }
 
@@ -1142,7 +1156,10 @@ border-radius: 50%;
   flex-direction:column;
   align-items: center;
   /* flex-wrap: wrap; */
-  padding-top: 40px; 
+  padding-top: 50px; 
+  border-radius: 70px 70px 0px 0px;
+  margin-top: -60px;
+  background-color: white;
 
 }
 
@@ -1158,10 +1175,11 @@ border-radius: 50%;
 }
 
 .newprofile-top-container.dashboard {
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  
   margin-top: 0px;
-  padding-bottom: 20px;
-padding-top: 20px;
+  padding-bottom: 40px;
+padding-top: 40px;
+background-color: var(--clr-blue);
 
 }
 
@@ -1170,6 +1188,7 @@ padding-top: 20px;
   display: flex;
   justify-content: space-around;
 width: 90%;
+margin-bottom: 70px;
 }
 
 .promotion-input {
@@ -1184,5 +1203,9 @@ width: 90%;
    width: 1px;
    
    /* margin-bottom: 5px; */
+ }
+
+ .profilepage-name.dashboardcoach {
+  margin-bottom: 50px;
  }
 

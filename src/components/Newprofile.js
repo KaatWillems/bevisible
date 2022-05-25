@@ -11,7 +11,8 @@ import Axios from 'axios'
 
 const initialValues = {
   picture: "",
-  name: "", 
+  name: "",
+  location: "", 
   title: "",
   projectlink: "",
   projecttitle: "",
@@ -116,6 +117,13 @@ const uploadImage = () => {
               value={form.title} 
               onChange={handleChange} 
               placeholder="Add title (e.g. Full Stack Developer)" 
+              className="newprofile-input" />
+
+              <Inputfield 
+              name="location" 
+              value={form.locatio} 
+              onChange={handleChange} 
+              placeholder="Add your location" 
               className="newprofile-input" />
             </div>
           </div>

@@ -30,9 +30,11 @@ console.log(form)
 
   return (
   	<>
-    <div className='profilepage-text'> {profile.interests} </div>
+    <div className='profilepage-text interests'> {profile.interests} 
+    <input type="button" value="Edit" className='btn edit popup'/> <input type="button" value="Delete" className='btn edit popup'/></div>
+
     <div className='input-container'>
-             
+             <div className='newprofile-smalltitle'>Add other interests</div>
               <Inputfield 
               placeholder="Add interests divided by  -" 
               className="newprofile-input" 

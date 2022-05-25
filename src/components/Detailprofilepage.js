@@ -9,6 +9,7 @@ import { faAt } from '@fortawesome/free-solid-svg-icons'
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons'
 import { faBuilding } from '@fortawesome/free-solid-svg-icons'
 import { faBasketball } from '@fortawesome/free-solid-svg-icons'
+import { faPencil } from '@fortawesome/free-solid-svg-icons'
 import Navbar from './features/Navbar'
 import profiledata from './profiledata.json'
 import { faUpload } from '@fortawesome/free-solid-svg-icons' 
@@ -130,7 +131,7 @@ const togglePopUp = (popUp) => {
         <div className='profilepage-resume-container'> 
           <div className='projects-container'>
 
-              <h4 className='profilepage-title'>Projects { show ? <input type="Button" onClick={() => togglePopUp("projects")} value="Edit" className='btn edit' /> : null } </h4>
+              <h4 className='profilepage-title'>Projects  { show ? <input type="Button" onClick={() => togglePopUp("projects")} value="Edit" className='btn edit' /> : null } </h4>
              <div> {isOpen && <Popup
                     content={<PopupProjects /> }
                     handleClose={() => togglePopUp("projects")}
