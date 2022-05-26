@@ -1097,8 +1097,10 @@ border-color:#71CED6 ;
 .dashboardbtncontainer {
   display: flex;
 flex-direction: column;
+align-items:center;
 justify-content: center;
 align-items:space-around;
+width: 33%;
 /* margin-left: 10px; */
 }
 
@@ -1111,10 +1113,12 @@ align-items:space-around;
 
 
 .dashboard-Pic-name-container {
-display: flex;flex-direction: column;
+display: flex;
+flex-direction: column;
 align-items: center;
 font-size: 1em;
 font-weight: 300;
+width: 33%;
 /* justify-content: center; */
 /* border: 1px solid red; */
   /* height: 100%; */  
@@ -1130,6 +1134,8 @@ padding-top: 12px; */
  align-items: center;
  justify-content: center;
   text-align: center; 
+  flex-wrap:wrap;
+  width: 33%;
   /*border-right: solid; */
    
   /*height: 100%; */
@@ -1143,7 +1149,9 @@ padding: 2px 15px;
 
 }
 
-
+.promotion>label {
+  width: 70%;
+}
 
 .profilepic.dash {
   height: 50px;
