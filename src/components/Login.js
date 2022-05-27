@@ -16,6 +16,7 @@ const Login = ()  => {
   const [pwd, setPwd] = useState('');
   // const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
+  const [token, setToken] = useState();
 
   //const navigate = useNavigate();
 
@@ -51,17 +52,24 @@ const handleSubmit = (e) => {
   })
   .then(response=> response.json())
   .then((data) => {
-    console.log(data)
+    const token = data.accessToken
    
-    
+  
+  localStorage.setItem('token', token)
+  setToken(token)
+
     // setToken(true)
-    // token ? setSuccess(true) : null
-   // let token = data.accessToken
+    // token ? setSuccess(true) : null  
+
+    if (token) {
+    setSuccess(true);
+    }
+
     //setToken(data.accessToken);
     // console.log(token)
    
-    // if (token) {
-      setSuccess(true);
+    //  {
+    
     //   //navigate("success", { replace: true });
     // }
     //console.log(token)
