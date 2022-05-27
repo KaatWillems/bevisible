@@ -1,10 +1,10 @@
 import React from 'react';
 import Loginform from './features/Loginform'
 import { Link } from "react-router-dom";
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types'
 //import { useNavigate } from 'react-router-dom';
-
+import { setCookie, UserContext } from '../App'
 
 
 const Login = ()  => {
@@ -16,8 +16,8 @@ const Login = ()  => {
   const [pwd, setPwd] = useState('');
   // const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
-  const [token, setToken] = useState();
 
+  const {setToken} = useContext(UserContext)
   //const navigate = useNavigate();
 
 
@@ -41,30 +41,36 @@ const handleSubmit = (e) => {
   e.preventDefault();
   
   const loginUser = async (user, pwd) => {
-  
-   await fetch("https://bevisible-backend.herokuapp.com/user/signin", {
-    // mode: 'no-cors',
-    method:'POST',
-    headers:{
-      'Content-Type':'application/json'
-    }, 
-    body: JSON.stringify({email: user, password: pwd})
-  })
-  .then(response=> response.json())
-  .then((data) => {
-    const token = data.accessToken
-   
-  
-  localStorage.setItem('token', token)
-  setToken(token)
-
+  fetch('https://bevisible-backend.herokuapp.com/user/signin', {
+      method: 'POST',
+      // mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: user, password: pwd
+      }),
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then((data) => {
+      console.log(data)
+      setToken(data.accessToken)
+      setCookie('token', data.accessToken, 7)
+      
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+  }
+  loginUser(user, pwd)
+ 
+}
     // setToken(true)
     // token ? setSuccess(true) : null  
 
-    if (token) {
-    setSuccess(true);
-    }
-
+   
     //setToken(data.accessToken);
     // console.log(token)
    
@@ -74,11 +80,7 @@ const handleSubmit = (e) => {
     // }
     //console.log(token)
     
-  })
  
-  } 
-  loginUser(user, pwd)
-}
 
 // setUser('');
 //   setPwd('');

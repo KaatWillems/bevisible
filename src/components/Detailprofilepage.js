@@ -36,9 +36,38 @@ function Detailprofilepage() {
   //
   const [form, setForm] = useState(""); 
 
-  const [profile, setProfile] = useState(profiledata[0]) 
+  const [profile, setProfile] = useState() 
 
-  console.log(profile)
+
+
+
+
+const getOneProfile = () => {
+      fetch("https://bevisible-backend.herokuapp.com/user/profile", {
+        // mode: 'no-cors',
+        method:'GET',
+         headers:{
+        //   'Content-Type':'application/json'
+         'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyO…zIwfQ.-1Gj84_ZZ7BucNBSm9i90gspoMhge3I7be9E6T5hO6Y"
+         }, 
+        // body: JSON.stringify({email: user, password: pwd})
+      })
+      .then(response=> response.json())
+      .then((data) => {
+       // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyO…zIwfQ.-1Gj84_ZZ7BucNBSm9i90gspoMhge3I7be9E6T5hO6Y"
+      //   if (token) {
+      
+      //   navigate("/home", { replace: true });
+        
+      //   }
+        console.log(data)
+      })
+
+    }
+    getOneProfile()
+  
+
+
 
  //  let Tagsbutton = profile.tags.map((tag, index) => {
  //   return <button className='tagButton2'>{tag}</button> 
