@@ -13,14 +13,37 @@ import pic1 from '../images/profile1.png'
 //   return <Card cardinfo={card} />
 // })
 
+function getCookie(cname) {
+  let name = cname + '='
+  let decodedCookie = decodeURIComponent(document.cookie)
+  let ca = decodedCookie.split(';')
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i]
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1)
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length)
+    }
+  }
+  return null
+}
+
 const Startpage = (props) => {
 
- const { token, userInfo, setUserInfo } = useContext(UserContext);
+  
 
+ const { token, userInfo, setUserInfo } = useContext(UserContext);
+ 
+
+  console.log(document.cookie);
 
  let Cardslist = profiledata.map((card, index) => {
   return <Card cardinfo={card} key={`card_nbr_${index}`}  />
 })
+
+
+
 
 // const navigate = useNavigate();
 
@@ -28,15 +51,18 @@ const Startpage = (props) => {
     e.preventDefault();
 
 
-
     const getAllProfiles = (token) => {
+      console.log(getCookie('token'))
       fetch("https://bevisible-backend.herokuapp.com/user/all", {
         // mode: 'no-cors',
         method:'GET',
-        mode: "cors",
+        //mode: "no-cors",
          headers:{
           "Content-Type": "application/json",
-          Authorization: `Token ${token}`,
+          // 'x-access-token': `Token ${getCookie("token")}`,
+           'x-access-token': ` ${getCookie("token")}`,
+          
+
          }, 
         // body: JSON.stringify({email: user, password: pwd})
 
