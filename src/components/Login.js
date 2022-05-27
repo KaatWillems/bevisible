@@ -52,7 +52,9 @@ const handleSubmit = (e) => {
   })
   .then(response=> response.json())
   .then((data) => {
-    const token = data.accessToken
+    const token = JSON.stringify(data.accessToken)
+
+    console.log(token);
    
   
   localStorage.setItem('token', token)
@@ -169,3 +171,53 @@ const handleSubmit = (e) => {
 // }
 
 export default Login;
+
+const login = () => {
+  fetch('https://be-together-backend.herokuapp.com/login/', {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: loginInputs.email.value,
+      password: loginInputs.password.value,
+    }),
+  })
+  .then((response) => {
+    return response.json()
+  })
+  .then((data) => {
+    setToken(data.token)
+    setCookie('token', data.token, 7)
+  })
+  .catch((err) => {
+    console.error(err)
+  })
+}
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const loginUser = async (user, pwd) => {
+
+   await fetch("https://bevisible-backend.herokuapp.com/user/signin", {
+    // mode: 'no-cors',
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json'
+    }, 
+    body: JSON.stringify({email: user, password: pwd})
+  
+  })
+  .then(response=> response.json())
+  .then((data) => {
+    setToken(data.accessToken)
+    setCookie('token', data.accessToken, 7)
+
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+  
+}
