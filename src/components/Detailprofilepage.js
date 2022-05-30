@@ -54,43 +54,40 @@ function Detailprofilepage() {
   //console.log(profiledata)
   const [form, setForm] = useState(""); 
 
-  const [profile, setProfile] = useState((profiledata[0]) ) 
+  const [profile, setProfile] = useState("") 
 
   //console.log(profile)
 
 
-
+useEffect(async() => {
 const getOneProfile = async(token) => {
   //console.log(getCookie('token'))
-      await fetch("https://bevisible-backend.herokuapp.com/user/get_one_user", {
-        
-        method:'GET',
-         headers:{
-          "Content-Type": "application/json",
-          // 'x-access-token': `Token ${getCookie("token")}`,
-           'x-access-token': ` ${getCookie("token")}`,
-          
+      let res =  await fetch(`https://bevisible-backend.herokuapp.com/user/profile`, {
 
-         }, 
-        
-      })
-      .then(response=> response.json())
-      .then((data) => {
-   
-      console.log("fetch works??")
-        console.log(data)
-        
-      })
-
-    }
-    getOneProfile()
-  
+            method:'POST',
+             headers:{
+              "Content-Type": "application/json",
+              // 'x-access-token': `Token ${getCookie("token")}`,
+               'x-access-token': ` ${getCookie("token")}`,
+             }, 
+             body: JSON.stringify({id: "628b996dd9e4bd7ad3c2cdcd"})
+          })
+      const json = await res.json()
+      const data = await json
+      setProfile(data.profile) 
+      console.log(json)
+          console.log("fetch works??")
+          console.log(data.profile)
+          console.log(data)
+          }
+        getOneProfile()
+      },[]);
 
 
 
-    let Tagsbutton = profile.tags.map((tag, index) => {
-   return <button className='tagButton2'>{tag}</button> 
- })
+ //    let Tagsbutton = profile.tags.map((tag, index) => {
+ //   return <button className='tagButton2'>{tag}</button> 
+ // })
 
 const [show, setShow] = useState(false)
 
@@ -142,9 +139,9 @@ const togglePopUp = (popUp) => {
       <div className='Detailprofilepage-container'>
         <Backedit onClick={makeAppear}  />
 
-        <button 
+    {/*    <button 
         onClick={getOneProfile}
-        >  show profile</button>
+        >  show profile</button>*/}
   
         <div className='Pic-name-container'>
           
@@ -200,7 +197,7 @@ const togglePopUp = (popUp) => {
               
               {/* change to tag component Charlotte: */}
               <div className='tag-container'>
-               {Tagsbutton} 
+              {/* {Tagsbutton} */}
                { show ? <input  type="button" value="Edit" onClick={() => togglePopUp("Tags")} className='btn edit' /> : null } </div>
           </div>
           <div> {isOpen2 && <Popup
