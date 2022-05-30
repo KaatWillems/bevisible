@@ -1,10 +1,15 @@
 import React from 'react';
 import Loginform from './features/Loginform'
 import { Link } from "react-router-dom";
-import { useRef, useState, useEffect, useContext } from 'react';
+import { useRef, useState, useEffect, useContext, createContext } from 'react';
 import PropTypes from 'prop-types'
 //import { useNavigate } from 'react-router-dom';
 import { setCookie, UserContext } from '../App'
+import Navbar from './features/Navbar';
+
+import ReactDOM from "react-dom/client";
+
+//const UserContext = createContext()
 
 
 const Login = ()  => {
@@ -19,23 +24,8 @@ const Login = ()  => {
 
   const {setToken} = useContext(UserContext)
   //const navigate = useNavigate();
+  const [id, setId] = useState('')
 
-
-  // const [username, setUsername] = useState()
-  // const [password, setPassword] = useState()
-  //set focus on this when component loads
-
-//   useEffect(() => {
-//     userRef.current.focus();
-// }, [])
-
-  // empty out error messages if user or pw state is changed 
-
-
-
-// useEffect(() => {
-//     setErrMsg('');
-// }, [user, pwd])
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -55,12 +45,14 @@ const handleSubmit = (e) => {
       return response.json()
     })
     .then((data) => {
-      console.log(data)
       setToken(data.accessToken)
       setCookie('token', data.accessToken, 7)
-
-     setSuccess(true)
-
+      setSuccess(true)
+      console.log(data)
+      //console.log(data.id)
+      setId(data.id) 
+      {<Navbar id={id} setId={setId} />}
+      
       // const token = JSON.stringify(data.accessToken)
       // setToken(token)
       // setCookie('token', token, 7)
@@ -73,6 +65,8 @@ const handleSubmit = (e) => {
   loginUser(user, pwd)
  
 }
+
+  
     // setToken(true)
     // token ? setSuccess(true) : null  
 
@@ -102,6 +96,12 @@ const handleSubmit = (e) => {
 
   return (
   	<>
+      {/* <UserContext.Provider value={id}>
+      <h1>{`Hello ${id}!`}</h1>
+     
+    </UserContext.Provider> */}
+    <Navbar id={id} /> 
+   
     {success ? (
     <section className='success-login-page'>
     <h1>You are logged in!</h1>

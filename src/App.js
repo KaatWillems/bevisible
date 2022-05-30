@@ -47,6 +47,39 @@ function App() {
 const [token, setToken] = useState(getCookie('token'))
 const [userInfo, setUserInfo] = useState(null)
 
+// const [id, setId] = useState('')
+
+
+//  const loginUser = async (user, pwd) => {
+//   fetch('https://bevisible-backend.herokuapp.com/user/signin', {
+//       method: 'POST',
+//       //  mode: 'no-cors',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//        body: JSON.stringify({
+//          email: user, password: pwd
+//        }),
+//     })
+//     .then((response) => {
+//       return response.json()
+//     })
+//     .then((data) => {
+//       console.log(data)
+//       console.log(data.id)
+//       setId(data.id)
+      
+      
+//     })
+//     .catch((err) => {
+//       console.error(err)
+//     })
+//   }
+//   loginUser()
+ 
+
+
+
 // useEffect(() => {
 //     async function fetchData() {
 //       if (token) {
@@ -96,7 +129,7 @@ const [userInfo, setUserInfo] = useState(null)
         <Route index element={<Login/>} /> 
         <Route path="*" element={<div>404 page not found</div>} />
         <Route path="/home" element={<Startpage/>} /> 
-        <Route path="/profile" element={token !== null ? <Detailprofilepage/> : <Navigate replace to='/' />} />  
+        <Route path="/profile/:id" element={<Detailprofilepage/> } />  
         <Route path="/newprofile" element={<Newprofile/>} />  
         <Route path="/login" element={token !== null ? <Login />: <Navigate replace to='/' />} />  
         <Route path="/register" element={<Register/>} />  

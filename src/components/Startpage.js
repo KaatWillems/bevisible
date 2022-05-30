@@ -38,9 +38,9 @@ const Startpage = (props) => {
 
   console.log(document.cookie);
 
- let Cardslist = profiledata.map((card, index) => {
+  let Cardslist = profiledata.map((card, index) => {
   return <Card cardinfo={card} key={`card_nbr_${index}`}  />
-})
+ })
 
 
 
@@ -52,7 +52,7 @@ const Startpage = (props) => {
 
 
     const getAllProfiles = (token) => {
-      console.log(getCookie('token'))
+      //console.log(getCookie('token'))
       fetch("https://bevisible-backend.herokuapp.com/user/all", {
         // mode: 'no-cors',
         method:'GET',
@@ -78,7 +78,10 @@ const Startpage = (props) => {
       //   navigate("/home", { replace: true });
 
       //   }
+        //console.log(data)
         console.log(data)
+
+        //console.log(data.data[0].profile.about)
       })
 
     }
