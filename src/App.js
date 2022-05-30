@@ -47,40 +47,41 @@ function App() {
 const [token, setToken] = useState(getCookie('token'))
 const [userInfo, setUserInfo] = useState(null)
 
-useEffect(() => {
-    async function fetchData() {
-      if (token) {
-        const userData = await fetch('https://bevisible-backend.herokuapp.com/user/profile', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Token ${token}`,
-          },
-        })
-        .then((res) => res.json())
-        .then((data) => data)
-        .catch(err => console.error(err))
+// useEffect(() => {
+//     async function fetchData() {
+//       if (token) {
+//         const userData = await fetch('https://bevisible-backend.herokuapp.com/user/profile', {
+//           method: 'GET',
+//           headers: {
+//             'Content-Type': 'application/json',
+//            // Authorization: `Token ${token}`,
+//             'x-access-token': ` ${getCookie("token")}`,
+//           },
+//         })
+//         .then((res) => res.json())
+//         .then((data) => data)
+//         .catch(err => console.error(err))
   
-        // setUserInfo({
-        //   id: userData.id,
-        //   email: userData.email,
-        //   name: userData.name,
-        //   title: userData.title,
-        //   about: userData.about,
-        //   status: userData.status,
-        //   tags: userData.tags,
-        //   work: userData.work,
-        //   promotion: userData.promotion,
-        //   education: userData.education,
-        //   interests: userData.interests,
-        //   socials: userData.socials,
-        // })
-      } else if (!token) {
-        setUserInfo(null)
-      }
-    }
-    fetchData()
-  }, [token])
+//         setUserInfo({
+//           id: userData.id,
+//           email: userData.email,
+//           name: userData.name,
+//           title: userData.title,
+//           about: userData.about,
+//           status: userData.status,
+//           tags: userData.tags,
+//           work: userData.work,
+//           promotion: userData.promotion,
+//           education: userData.education,
+//           interests: userData.interests,
+//           socials: userData.socials,
+//         })
+//       } else if (!token) {
+//         setUserInfo(null)
+//       }
+//     }
+//     fetchData()
+//   }, [token])
 
 
 
