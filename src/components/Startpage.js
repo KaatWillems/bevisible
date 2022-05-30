@@ -56,6 +56,7 @@ const Startpage = (props) => {
        console.log("DATA :", data)
 
 
+
  
 
           // .then(response=> response.json())
@@ -79,7 +80,9 @@ const Startpage = (props) => {
 //  useEffect(() => {
       
 
+
 //      },[]); 
+
 
 
 
@@ -88,6 +91,7 @@ const Startpage = (props) => {
 
 //  let Cardslist = data.profile.map((card, index) => {
 
+
 //   return <Card cardinfo={card} key={`card_nbr_${index}`}  />
 // })
  
@@ -95,6 +99,7 @@ const Startpage = (props) => {
 //  let Cardslist = data.profile.map((card, index) => {
 //   return <Card cardinfo={card} key={`card_nbr_${index}`}  />
 // })
+
 
 
 
