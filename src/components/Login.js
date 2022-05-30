@@ -43,7 +43,7 @@ const handleSubmit = (e) => {
   const loginUser = async (user, pwd) => {
   fetch('https://bevisible-backend.herokuapp.com/user/signin', {
       method: 'POST',
-      // mode: 'cors',
+      //  mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -58,6 +58,12 @@ const handleSubmit = (e) => {
       console.log(data)
       setToken(data.accessToken)
       setCookie('token', data.accessToken, 7)
+
+     setSuccess(true)
+
+      // const token = JSON.stringify(data.accessToken)
+      // setToken(token)
+      // setCookie('token', token, 7)
       
     })
     .catch((err) => {
@@ -90,11 +96,6 @@ const handleSubmit = (e) => {
 
     // setData(data.message)
 
-
-
-
-  // BACKEND SHOULD BE LINKED HERE. with AXIOS? and then you can delete the below:
-  // console.log(user, pwd);
  
 
 

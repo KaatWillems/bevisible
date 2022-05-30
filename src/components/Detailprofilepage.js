@@ -62,7 +62,7 @@ function Detailprofilepage() {
 
 const getOneProfile = async(token) => {
   //console.log(getCookie('token'))
-      await fetch("https://bevisible-backend.herokuapp.com/user/all", {
+      await fetch("https://bevisible-backend.herokuapp.com/user/profile", {
         
         method:'GET',
          headers:{
