@@ -12,7 +12,7 @@ import ReactDOM from "react-dom/client";
 //const UserContext = createContext()
 
 
-const Login = ()  => {
+const Login = (props)  => {
 
   const userRef = useRef();
   const errRef = useRef();
@@ -24,14 +24,18 @@ const Login = ()  => {
 
   const {setToken} = useContext(UserContext)
   //const navigate = useNavigate();
-  const [id, setId] = useState('')
+  
+  console.log( props.id )
 
+
+ 
 
 const handleSubmit = (e) => {
   e.preventDefault();
   
-  const loginUser = async (user, pwd) => {
-  fetch('https://bevisible-backend.herokuapp.com/user/signin', {
+  const loginUser = async (user, pwd, props) => {
+  fetch('https://cors-anywhere.herokuapp.com/https://bevisible-backend.herokuapp.com/user/signin', {
+
       method: 'POST',
       //  mode: 'no-cors',
       headers: {
@@ -51,8 +55,18 @@ const handleSubmit = (e) => {
       setSuccess(true)
       
       //console.log(data.id)
-      setId(data.id) 
-      {<Navbar id={id} setId={setId} />}
+
+      //console.log({id={`props.id`}})
+       //
+    props.setId(data.id) 
+      
+
+      
+       
+
+        // props.setId(props.data.id)
+        // console.log(props.id)
+      
       
       // const token = JSON.stringify(data.accessToken)
       // setToken(token)
@@ -64,6 +78,7 @@ const handleSubmit = (e) => {
     })
   }
   loginUser(user, pwd)
+  
  
 }
 
@@ -97,11 +112,7 @@ const handleSubmit = (e) => {
 
   return (
   	<>
-      {/* <UserContext.Provider value={id}>
-      <h1>{`Hello ${id}!`}</h1>
-     
-    </UserContext.Provider> */}
-    <Navbar id={id} /> 
+      {console.log( props.id )}
    
     {success ? (
     <section className='success-login-page'>
@@ -154,7 +165,7 @@ const handleSubmit = (e) => {
       <hr/>
 
     </div>
-    <button className="btn password" type="submit" value="LOG IN"> Login </button>
+    <button className="btn password" type="submit" value="LOG IN" onClick={setId}> Login </button>
 
     <p className="inner-label user ">New user? <Link to="/register" className='a'>Join us!</Link> </p>
 
