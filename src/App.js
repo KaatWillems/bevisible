@@ -61,20 +61,20 @@ useEffect(() => {
         .then((data) => data)
         .catch(err => console.error(err))
   
-        setUserInfo({
-          id: userData.id,
-          email: userData.email,
-          name: userData.name,
-          title: userData.title,
-          about: userData.about,
-          status: userData.status,
-          tags: userData.tags,
-          work: userData.work,
-          promotion: userData.promotion,
-          education: userData.education,
-          interests: userData.interests,
-          socials: userData.socials,
-        })
+        // setUserInfo({
+        //   id: userData.id,
+        //   email: userData.email,
+        //   name: userData.name,
+        //   title: userData.title,
+        //   about: userData.about,
+        //   status: userData.status,
+        //   tags: userData.tags,
+        //   work: userData.work,
+        //   promotion: userData.promotion,
+        //   education: userData.education,
+        //   interests: userData.interests,
+        //   socials: userData.socials,
+        // })
       } else if (!token) {
         setUserInfo(null)
       }

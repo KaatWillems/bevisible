@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
+import {UserContext} from "../App"
 import Backedit from './features/Backedit'
 import pic1 from '../images/profile1.png'
 import becodelogo from '../images/becodelogo.png'
@@ -25,42 +26,60 @@ import PopupWork from './features/PopupWork'
 import PopupEducation from './features/PopupEducation'
 import PopUpInterests from './features/PopUpInterests'
 
+
+function getCookie(cname) {
+  let name = cname + '='
+  let decodedCookie = decodeURIComponent(document.cookie)
+  let ca = decodedCookie.split(';')
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i]
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1)
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length)
+    }
+  }
+  return null
+}
+
 function Detailprofilepage() {
                              
-  // useEffect(() => {
-  //   // Replace ith API call
-  //   const userData = profiledata
+  //const { token } = useContext(UserContext);
 
+  //console.log(document.cookie);
 
-  //   console.log(profiledata)
-  //
+      
+
+  //console.log(profiledata)
   const [form, setForm] = useState(""); 
 
-  const [profile, setProfile] = useState() 
+  const [profile, setProfile] = useState((profiledata[0]) ) 
+
+  //console.log(profile)
 
 
 
-
-
-const getOneProfile = () => {
-      fetch("https://bevisible-backend.herokuapp.com/user/profile", {
-        // mode: 'no-cors',
+const getOneProfile = async(token) => {
+  //console.log(getCookie('token'))
+      await fetch("https://bevisible-backend.herokuapp.com/user/all", {
+        
         method:'GET',
          headers:{
-        //   'Content-Type':'application/json'
-         'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyO…zIwfQ.-1Gj84_ZZ7BucNBSm9i90gspoMhge3I7be9E6T5hO6Y"
+          "Content-Type": "application/json",
+          // 'x-access-token': `Token ${getCookie("token")}`,
+           'x-access-token': ` ${getCookie("token")}`,
+          
+
          }, 
-        // body: JSON.stringify({email: user, password: pwd})
+        
       })
       .then(response=> response.json())
       .then((data) => {
-       // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyO…zIwfQ.-1Gj84_ZZ7BucNBSm9i90gspoMhge3I7be9E6T5hO6Y"
-      //   if (token) {
-      
-      //   navigate("/home", { replace: true });
-        
-      //   }
+   
+      console.log("fetch works??")
         console.log(data)
+        
       })
 
     }
@@ -69,19 +88,12 @@ const getOneProfile = () => {
 
 
 
- //  let Tagsbutton = profile.tags.map((tag, index) => {
- //   return <button className='tagButton2'>{tag}</button> 
- // })
-
-
     let Tagsbutton = profile.tags.map((tag, index) => {
    return <button className='tagButton2'>{tag}</button> 
  })
 
 const [show, setShow] = useState(false)
-// function changeState() {
-//     setShow(!show);  
-// }
+
 
 function makeAppear() {
   setShow(!show);
@@ -124,17 +136,15 @@ const togglePopUp = (popUp) => {
 
 
 
-
-
- //Bookmarks
-//  codes comes here
-
-
  
   return (
    <>
       <div className='Detailprofilepage-container'>
         <Backedit onClick={makeAppear}  />
+
+        <button 
+        onClick={getOneProfile}
+        >  show profile</button>
   
         <div className='Pic-name-container'>
           
@@ -190,7 +200,8 @@ const togglePopUp = (popUp) => {
               
               {/* change to tag component Charlotte: */}
               <div className='tag-container'>
-               {Tagsbutton} { show ? <input  type="button" value="Edit" onClick={() => togglePopUp("Tags")} className='btn edit' /> : null } </div>
+               {Tagsbutton} 
+               { show ? <input  type="button" value="Edit" onClick={() => togglePopUp("Tags")} className='btn edit' /> : null } </div>
           </div>
           <div> {isOpen2 && <Popup
       content={<PopupTags />}
