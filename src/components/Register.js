@@ -40,8 +40,6 @@ const Register = (props) => {
 //applied to username, when we validate useraname. anytime it changes it will check the validation of the username:
     useEffect(() => {
       const result = USER_REGEX.test(user);
-      console.log(result);
-      console.log(user);
       setValidName(result)
     }, [user])
 
@@ -49,7 +47,6 @@ const Register = (props) => {
 // with match will say if you have a valid match or not between the two entered passwords. 
     useEffect(() => {
       const result = PWD_REGEX.test(pwd);
-      console.log(result);
       console.log(pwd);      
       setValidPwd(result);
       const match = pwd === matchPwd;
@@ -64,11 +61,32 @@ const Register = (props) => {
 
   const handleSubmit = async (e) => {
      e.preventDefault();
-    //  REST API NODE JS COMES HERE or do we need axios? 
-    // this below then should be deleted: 
-    console.log(user, pwd);
-    setSuccess(true);
+     const registerUser = async (user, pwd) => {
+      fetch('https://cors-anywhere.herokuapp.com/https://bevisible-backend.herokuapp.com/user/signup', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: user, password: pwd
+        }),
+      })
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        console.log(data)
+        setSuccess(true);
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+       
+     }
+  registerUser(user, pwd)
   }
+ 
+  
 
   //CHECKBOX student/comp
   // const [checked, setChecked] = useState();
@@ -86,7 +104,7 @@ const Register = (props) => {
     {success ? (
       <section className='success-page'>
         <h1>Succes!</h1>
-        <p> <Link to="/login" className='succes-log'> Log in</Link>  </p>
+        <p> <Link to="/" className='succes-log'> Log in</Link>  </p>
         <br />
       </section>
     ) : (
@@ -102,17 +120,17 @@ const Register = (props) => {
     <form className="login-form flex flex-col" onSubmit={handleSubmit}>
 
     <div className="inner-label-wrap">
-      <label className="inner-label" htmlFor="username">Name</label>
+      <label className="inner-label" htmlFor="email">E-Mail</label>
       <input  
       className="full-width" 
       type="text" 
-      id="username" 
+      id="email" 
       // to set focus:
       ref={userRef}
       autoComplete="off"
       // this ties the input to the user state:
       onChange={(e) => setUser(e.target.value)}
-      name="username"
+      name="email"
       // for focus:
       onFocus={() => setUserFocus(true)}
       onBlur={() => setUserFocus(false)}
@@ -161,9 +179,11 @@ const Register = (props) => {
     </div>
 
       
-    <button  disabled={!validName || !validPwd || !validMatch ? true : false} className="btn password" type="submit" value="Register"> Register </button>
+    <button  
+    // disabled={!validName || !validPwd || !validMatch ? true : false}
+     className="btn password" type="submit" value="Register"> Register </button>
     
-    <p className="inner-label user">Already registered? <Link to="/login" className='a'> Log in!</Link> </p>
+    <p className="inner-label user">Already registered? <Link to="/" className='a'> Log in!</Link> </p>
 
 
 

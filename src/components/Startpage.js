@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {UserContext} from "../App"
 import Searchinput from './features/Searchinput'
 import Header from './features/Header'
@@ -31,59 +31,71 @@ function getCookie(cname) {
 
 const Startpage = (props) => {
 
-  
+  const [data, setData] = useState(0)
+
 
  const { token, userInfo, setUserInfo } = useContext(UserContext);
+
+ useEffect(async() => {
+      const getAllProfiles = async (token) => {
+       let res = await fetch("https://bevisible-backend.herokuapp.com/user/all", {
+              // mode: 'no-cors',
+              method:'GET',
+              //mode: "no-cors",
+              headers:{
+                "Content-Type": "application/json",
+                // 'x-access-token': `Token ${getCookie("token")}`,
+                 'x-access-token': ` ${getCookie("token")}`,
+              }, 
+              // body: JSON.stringify({email: user, password: pwd})
+        })
+
+       const json = await res.json()
+       const data = await json
+       setData(data.data)
+       console.log("DATA :", data)
+
+
  
 
-  console.log(document.cookie);
-
- let Cardslist = profiledata.map((card, index) => {
-  return <Card cardinfo={card} key={`card_nbr_${index}`}  />
-})
-
-
-
-
-// const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-
-    const getAllProfiles = (token) => {
-      console.log(getCookie('token'))
-      fetch("https://bevisible-backend.herokuapp.com/user/all", {
-        // mode: 'no-cors',
-        method:'GET',
-        //mode: "no-cors",
-         headers:{
-          "Content-Type": "application/json",
-          // 'x-access-token': `Token ${getCookie("token")}`,
-           'x-access-token': ` ${getCookie("token")}`,
+          // .then(response=> response.json())
+          // .then((data) => {
+            
+            // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyO…zIwfQ.-1Gj84_ZZ7BucNBSm9i90gspoMhge3I7be9E6T5hO6Y"
+            //   if (token) {
+            //   navigate("/home", { replace: true })
+            //   }
+            
+            }
           
+           getAllProfiles(token) 
+          
+        },[]);
 
-         }, 
-        // body: JSON.stringify({email: user, password: pwd})
 
-      })
+// // const navigate = useNavigate();
 
-      .then(response=> response.json())
-      .then((data) => {
+
+//  useEffect(() => {
       
 
-      // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyO…zIwfQ.-1Gj84_ZZ7BucNBSm9i90gspoMhge3I7be9E6T5hO6Y"
-      //   if (token) {
+//      },[]); 
 
-      //   navigate("/home", { replace: true });
 
-      //   }
-        console.log(data)
-      })
 
-    }
-    getAllProfiles(token)
-  }
+        // console.log(x.data.profile.about)
+
+
+//  let Cardslist = data.profile.map((card, index) => {
+
+//   return <Card cardinfo={card} key={`card_nbr_${index}`}  />
+// })
+ 
+
+//  let Cardslist = data.profile.map((card, index) => {
+//   return <Card cardinfo={card} key={`card_nbr_${index}`}  />
+// })
+
 
 
 
@@ -94,8 +106,11 @@ const Startpage = (props) => {
     <Header />
 
     <div className="cards-container"> 
-    <button onClick={handleSubmit}> show all</button>
-    {Cardslist}
+   
+    { data === 0 ? "WAITING" : data.map((card) => <Card cardinfo={card.profile} key={`card_nbr_${123}`} />)}
+
+
+
     </div>
     <Navbar />
     </>
