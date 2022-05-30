@@ -40,8 +40,6 @@ const handleChange = event => {
   
    // const {name, value} = event.target.value; 
    // setValue({...values, [name]: value,})
-
-
 }
 
 const handleSubmit = event => {
@@ -54,7 +52,7 @@ console.log(form)
    //  })
    
 //CLOUDINARY UPLOAD PIC
-  const [imageSelected, setImageSelected] = useState();
+const [imageSelected, setImageSelected] = useState();
 
 const uploadImage = () => {
   console.log(imageSelected)

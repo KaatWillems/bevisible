@@ -7,13 +7,19 @@ import { Link } from 'react-router-dom';
 
 const Card = (props) => {
 
- // const [profile, setProfile] = useState(profiledata[0]) 
+ // const [profile, setProfile] = useState()
+
+ let image
+
+if(props.cardinfo === null){
+  image = ",kgjsgkhs,gjhsdf,gk"
+  return(<p> ERROR</p>)
+}else{
+  image = props.cardinfo.picture
+
 let Tagslist = props.cardinfo.tags.map((tag, index) => {
   return <Tags tag={tag} /> 
  })
-
-
-
   return (
 
     
@@ -24,9 +30,10 @@ let Tagslist = props.cardinfo.tags.map((tag, index) => {
     <container className="card">
     <Link to="/profile" className='no-underline'>
     <div className='startpage-Pic-name-container'>
-    <img src={`/../../../${props.cardinfo.picture}`} alt="profilepic" className='profilepic'/>
-    <h4 className='profilepage-name'>{props.cardinfo.name} </h4>
-    <h5 className='profilepage-subtitle'>{props.cardinfo.title}</h5>
+    <img src={`/../../../${image}`} alt="profilepic" className='profilepic'/>
+    <h4 className='profilepage-name'>{props.cardinfo.firstname} </h4>
+    <h5 className='profilepage-subtitle'>{props.cardinfo.interests}</h5>
+
     </div>
     </Link>
     
@@ -37,6 +44,6 @@ let Tagslist = props.cardinfo.tags.map((tag, index) => {
 </>
   ) 
 }
+}
 export default Card; 
 
-    

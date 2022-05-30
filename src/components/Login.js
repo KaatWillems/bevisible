@@ -31,7 +31,7 @@ const handleSubmit = (e) => {
   e.preventDefault();
   
   const loginUser = async (user, pwd) => {
-  fetch('https://bevisible-backend.herokuapp.com/user/signin', {
+  fetch('https://cors-anywhere.herokuapp.com/https://bevisible-backend.herokuapp.com/user/signin', {
       method: 'POST',
       //  mode: 'no-cors',
       headers: {
