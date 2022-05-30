@@ -112,7 +112,7 @@ const Startpage = (props) => {
 
     <div className="cards-container"> 
    
-    { data === 0 ? "WAITING" : data.map((card) => <Card cardinfo={card.profile} key={`card_nbr_${123}`} />)}
+    { data === 0 ? "WAITING" : data.map((card, index) => <Card cardinfo={card.profile} key={`card_nbr_${index}`} />)}
 
 
 

@@ -31,7 +31,7 @@ const handleSubmit = (e) => {
   e.preventDefault();
   
   const loginUser = async (user, pwd) => {
-  fetch('https://cors-anywhere.herokuapp.com/https://bevisible-backend.herokuapp.com/user/signin', {
+  fetch('https://bevisible-backend.herokuapp.com/user/signin', {
       method: 'POST',
       //  mode: 'no-cors',
       headers: {
@@ -45,10 +45,11 @@ const handleSubmit = (e) => {
       return response.json()
     })
     .then((data) => {
+      console.log(data)
       setToken(data.accessToken)
       setCookie('token', data.accessToken, 7)
       setSuccess(true)
-      console.log(data)
+      
       //console.log(data.id)
       setId(data.id) 
       {<Navbar id={id} setId={setId} />}
