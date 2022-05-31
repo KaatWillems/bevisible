@@ -20,6 +20,10 @@ if(props.cardinfo === null){
 let Tagslist = props.cardinfo.tags.map((tag, index) => {
   return <Tags tag={tag} /> 
  })
+
+console.log(props.cardinfo)
+
+
   return (
 
     
@@ -28,8 +32,8 @@ let Tagslist = props.cardinfo.tags.map((tag, index) => {
 <>
 
     <container className="card">
-    <Link to="/profile" className='no-underline'>
-    <div className='startpage-Pic-name-container'>
+  <Link to={`/profile/${props.cardinfo._id}`} state={{data: props.cardinfo}} className='no-underline'>
+  <div className='startpage-Pic-name-container'>
 
     <img src={`${image}`} alt="profilepic" className='profilepic'/>
 
