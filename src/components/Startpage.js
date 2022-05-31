@@ -32,7 +32,7 @@ function getCookie(cname) {
 const Startpage = (props) => {
 
   const [data, setData] = useState(0)
-
+  //console.log(props.id)
 
  const { token, userInfo, setUserInfo } = useContext(UserContext);
 
