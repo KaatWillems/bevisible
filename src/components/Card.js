@@ -32,6 +32,7 @@ console.log(props.cardinfo)
 <>
 
     <container className="card">
+
   <Link to={`/profile/${props.cardinfo._id}`} state={{data: props.cardinfo}} className='no-underline'>
   <div className='startpage-Pic-name-container'>
 

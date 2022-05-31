@@ -6,7 +6,8 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 import { Link, useNavigate } from 'react-router-dom'
 
 function Navbar(props) {
-
+ 
+  console.log(props.id, "props.id in navbar")
   
   //onst [id, props.setId] = useState('')
   

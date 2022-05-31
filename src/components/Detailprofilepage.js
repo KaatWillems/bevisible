@@ -45,6 +45,7 @@ function getCookie(cname) {
 }
 
 function Detailprofilepage(props) {
+
                              
   //const { token } = useContext(UserContext);
 
@@ -285,8 +286,8 @@ else {
         </div>
   
   
-      <Navbar />
 
+      <Navbar id={props.id} />
 
    </>
 
