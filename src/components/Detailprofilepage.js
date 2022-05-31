@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
+import {useLocation} from 'react-router-dom';
 import {UserContext} from "../App"
 import Backedit from './features/Backedit'
 import pic1 from '../images/profile1.png'
@@ -44,8 +45,6 @@ function getCookie(cname) {
 }
 
 function Detailprofilepage(props) {
-  console.log(props.id)
-
 
                              
   //const { token } = useContext(UserContext);
@@ -56,35 +55,39 @@ function Detailprofilepage(props) {
 
   //console.log(profiledata)
   const [form, setForm] = useState(""); 
+  
 
-  const [profile, setProfile] = useState("") 
-
+const location = useLocation()
+  const state = location.state 
+  console.log(location.state.data)
+  let profile = location.state.data
+  console.log(profile)
   //console.log(profile)
 
 
-useEffect(async() => {
-const getOneProfile = async(token) => {
-  //console.log(getCookie('token'))
-      let res =  await fetch(`https://bevisible-backend.herokuapp.com/user/profile`, {
+// useEffect(async() => {
+// const getOneProfile = async(token) => {
+//   //console.log(getCookie('token'))
+//       let res =  await fetch(`https://bevisible-backend.herokuapp.com/user/profile`, {
 
-            method:'POST',
-             headers:{
-              "Content-Type": "application/json",
-              // 'x-access-token': `Token ${getCookie("token")}`,
-               'x-access-token': ` ${getCookie("token")}`,
-             }, 
-             body: JSON.stringify({id: "628b996dd9e4bd7ad3c2cdcd"})
-          })
-      const json = await res.json()
-      const data = await json
-      setProfile(data.profile) 
-      console.log(json)
-          console.log("fetch works??")
-          console.log(data.profile)
-          console.log(data)
-          }
-        getOneProfile()
-      },[]);
+//             method:'POST',
+//              headers:{
+//               "Content-Type": "application/json",
+//               // 'x-access-token': `Token ${getCookie("token")}`,
+//                'x-access-token': ` ${getCookie("token")}`,
+//              }, 
+//              body: JSON.stringify({id: "628b9978d9e4bd7ad3c2cdd0"})
+//           })
+//       const json = await res.json()
+//       const data = await json
+//       setProfile(data.profile) 
+//       console.log(json)
+//           console.log("fetch works??")
+//           console.log(data.profile)
+//           console.log(data)
+//           }
+//         getOneProfile()
+//       },[]);
 
 
 
@@ -135,7 +138,11 @@ const togglePopUp = (popUp) => {
  })
 
 
+if(profile === null) {
+  return "Waiting"
+}
 
+else {
  
   return (
    <>
@@ -149,7 +156,7 @@ const togglePopUp = (popUp) => {
         <div className='Pic-name-container'>
           
            <div className="socialsimages"> 
-              <img src={`/../../../${profile.picture}`}  alt="profilepic" className='profilepic'/>
+              <img src={`${profile.picture}`}  alt="profilepic" className='profilepic'/>
 
                 { show ? <Button value="Edit" className='btn edit' /> : null } 
               <div className='icon-wrapper'>
@@ -217,15 +224,15 @@ const togglePopUp = (popUp) => {
             />} </div>
           
                   <div className='row work1'>
-                    <div className='profilepage-text'> {profile.work[0].jobposition} </div>
-                    <div className='duration'>{profile.work[0].duration}</div>
+                    <div className='profilepage-text'> {profile.work.position} </div>
+                    <div className='duration'>{profile.work.duration}</div>
                   </div>
   
                   <div className='work-separator-line'></div> 
   
                   <div className='row work2'>
-                    <div className='profilepage-text'>{profile.work[1].jobposition}</div>
-                    <div className='duration'>{profile.work[1].duration}</div>
+                    <div className='profilepage-text'>{profile.work.position}</div>
+                    <div className='duration'>{profile.work.duration}</div>
                   </div>
               </div>
           </div>
@@ -235,8 +242,8 @@ const togglePopUp = (popUp) => {
               <h4 className='profilepage-title'><FontAwesomeIcon icon={faBuilding} /> Education { show ? <input value="Edit" type="button" onClick={() => togglePopUp("Education")} className='btn edit' /> : null } </h4>
              <div className='rows'>
                 <div className='row education1'>
-                      <div className='profilepage-text'> {profile.education[0].school} </div>
-                      <div className='duration'>{profile.education[0].graduation}</div>
+                      <div className='profilepage-text'> {profile.education.school} </div>
+                      <div className='duration'>{profile.education.graduation}</div>
                     </div>
              </div>
           </div>
@@ -279,10 +286,13 @@ const togglePopUp = (popUp) => {
         </div>
   
   
+
       <Navbar id={props.id} />
+
    </>
+
     
-  )
+  )}
 }
 
 export default Detailprofilepage
