@@ -31,6 +31,9 @@ function getCookie(cname) {
 
 const Startpage = (props) => {
 
+
+  
+const [profileId, setProfileId] = useState()
   const [data, setData] = useState(0)
   //console.log(props.id)
 

@@ -45,7 +45,6 @@ function getCookie(cname) {
 function App() {
 
  const [id, setId] = useState('empty id from app.js')
-
 const [token, setToken] = useState(getCookie('token'))
 const [userInfo, setUserInfo] = useState(null)
 
@@ -131,8 +130,8 @@ const [userInfo, setUserInfo] = useState(null)
 
         <Route index element={<Login id={id} onClick={() => setId(setId)} setId={setId}/>} /> 
         <Route path="*" element={<div>404 page not found</div>} />
-        <Route path="/home" element={<Startpage id={id}/>} /> 
-        <Route path="/profile/:id" element={<Detailprofilepage/> } />  
+        <Route path="/home" element={<Startpage id={id} />} /> 
+        <Route path="/profile/:id" element={<Detailprofilepage /> } />  
         <Route path="/newprofile" element={<Newprofile/>} />  
         <Route path="/login" element={token !== null ? <Login />: <Navigate replace to='/' />} />  
         <Route path="/register" element={<Register/>} />  
