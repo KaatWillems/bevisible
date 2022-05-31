@@ -7,6 +7,7 @@ import Card from "./Card"
 import Navbar from "./features/Navbar"
 import profiledata from './profiledata.json'
 import pic1 from '../images/profile1.png'
+import Detailprofilepage from './Detailprofilepage';
 
 // import Cardslist from "./Cardslist"
 // let Cardslist = profiledata.map((card, index) => {
@@ -117,7 +118,8 @@ const Startpage = (props) => {
 
 
     </div>
-    <Navbar />
+    <Navbar id={props.id}  />
+    
     </>
   )
 }

@@ -25,7 +25,7 @@ const Login = (props)  => {
   const {setToken} = useContext(UserContext)
   //const navigate = useNavigate();
   
-  console.log( props.id )//works 'empty id from app
+  //console.log( props.id )//works 'empty id from app
 
 
   
@@ -94,7 +94,7 @@ const Login = (props)  => {
     const json = await res.json()
     const data = await json
     setDatalogin(data.id)
-    console.log("DATA :", datalogin)
+    console.log("datalogin :", datalogin)
     setSuccess(true)
 
           
@@ -107,11 +107,11 @@ const Login = (props)  => {
 
   }   
 
-  console.log(datalogin, "consoel datalogin")
+  
 
-console.log( props.id )//works 'empty id from app
+
 props.setId(datalogin)
-console.log( props.id )//works 'empty id from app
+console.log( props.id, "should be correct id after login" )//works 'empty id from app
 //props.setId()
 // const handleSubmit = (e) => {
 //   e.preventDefault();
@@ -127,7 +127,7 @@ console.log( props.id )//works 'empty id from app
 
   return (
   	<>
-      {console.log( props.id )} 
+      
    
     {success ? (
     <section className='success-login-page'>

@@ -43,7 +43,10 @@ function getCookie(cname) {
   return null
 }
 
-function Detailprofilepage() {
+function Detailprofilepage(props) {
+  console.log(props.id)
+
+
                              
   //const { token } = useContext(UserContext);
 
@@ -276,7 +279,7 @@ const togglePopUp = (popUp) => {
         </div>
   
   
-      <Navbar />
+      <Navbar id={props.id} />
    </>
     
   )

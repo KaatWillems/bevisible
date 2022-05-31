@@ -9,28 +9,54 @@ import Axios from 'axios'
 
 
 
-const initialValues = {
-  picture: "",
-  name: "",
-  location: "", 
-  title: "",
-  projectlink: "",
-  projecttitle: "",
-  aboutme: "",
-  jobposition: "",
-  jobduration: "",
-  institute: "",
-  graduationyear: "",
-  interests: "",
-  email: "",
-  socialmedia1: "",
-  socialmedia2: "",
+//const initialValues = 
+// {
+//   picture: picture, 
+//   firstname: firstname, 
+//    lastname: lastname,
+//    title: title,
+//    status: status,
+//    tags: [tag1, tag2, tag3],
+//    about: aboutme,
+//    work: {
+//      position: jobposition, 
+//      duration: jobduration
+//     },
+//   education: {
+//     school: institute,
+//     graduation: graduationyear
+//     },
+//   interests: interests,
+//   cvlink: "",
+//   socials: {
+//       email: email,
+//       github: socialmedia1,
+//       linkedin: socialmedia2,
+//       website: email
+//     }
+//   }
+
+  function getCookie(cname) {
+    let name = cname + '='
+    let decodedCookie = decodeURIComponent(document.cookie)
+    let ca = decodedCookie.split(';')
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i]
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1)
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length)
+      }
+    }
+    return null
   }
 
-function Newprofile() {
+function Newprofile(props) {
 
 
-const [form, setForm] = useState(initialValues);
+const [form, setForm] = useState('');
+//const [form, setForm] = useState(initialValues);
 
 
 const handleChange = event => {
@@ -44,7 +70,59 @@ const handleChange = event => {
 
 const handleSubmit = event => {
 event.preventDefault();
-console.log(form)
+//console.log(form)
+
+  const submitUser = async (token, picture, firstname, lastname, title, status, tag1, tag2, tag3, aboutme, jobposition, jobduration, institute, graduationyear, interests, email, socialmedia1, socialmedia2 ) => {
+
+    let res = await fetch("https://bevisible-backend.herokuapp.com/user/profile/new", {
+      method:'POST',
+      mode: "no-cors",
+      headers:{
+        "Content-Type": "application/json",
+        // 'x-access-token': `Token ${getCookie("token")}`,
+         'x-access-token': ` ${getCookie("token")}`,
+      }, 
+       body: JSON.stringify({
+        picture: picture, 
+        firstname: firstname, 
+         lastname: lastname,
+         title: title,
+         status: status,
+         tags: [tag1, tag2, tag3],
+         about: aboutme,
+         work: {
+           position: jobposition, 
+           duration: jobduration
+          },
+        education: {
+          school: institute,
+          graduation: graduationyear
+          },
+        interests: interests,
+        cvlink: "",
+        socials: {
+            email: email,
+            github: socialmedia1,
+            linkedin: socialmedia2,
+            website: email
+          }
+        
+        })
+    })
+    console.log("helloo??")
+      const json = await res.json()
+      const data = await json
+      setForm(data.form)
+      console.log("formdata :", form)
+
+    console.log(json)
+  }
+
+  submitUser()
+
+
+
+
 }
    // console.log(title)
    // setForm({
@@ -103,12 +181,18 @@ const uploadImage = () => {
           <div className='newprofile-wrapper name-title'>
             <div className='input-container'>    
               <Inputfield 
-              name="name" 
-              placeholder="Add name" 
-              value={form.name} 
+              name="firstname" 
+              placeholder="Add first name" 
+              value={form.firstname} 
               onChange={handleChange}  
               className="newprofile-input" />
               
+              <Inputfield 
+              name="lastname" 
+              placeholder="Add last name" 
+              value={form.lastname} 
+              onChange={handleChange}  
+              className="newprofile-input" />
                 
               <Inputfield 
               name="title" 
@@ -118,10 +202,10 @@ const uploadImage = () => {
               className="newprofile-input" />
 
               <Inputfield 
-              name="location" 
-              value={form.locatio} 
+              name="status" 
+              value={form.status} 
               onChange={handleChange} 
-              placeholder="Add your location" 
+              placeholder="Add your goal (e.g. internship)" 
               className="newprofile-input" />
             </div>
           </div>
@@ -138,7 +222,7 @@ const uploadImage = () => {
                 type="file"
                 placeholder="Upload a project picture"
               />
-              <label for="uploadfile" className="upload-icon-label">  <FontAwesomeIcon icon={faUpload} className='upload-icon'/> <br /> Upload picture  </label>
+              <label htmlFor="uploadfile" className="upload-icon-label">  <FontAwesomeIcon icon={faUpload} className='upload-icon'/> <br /> Upload picture  </label>
               <div>
                 
                  
@@ -168,7 +252,7 @@ const uploadImage = () => {
           <div className='newprofile-wrapper aboutmex-'>
             <div className='newprofile-smalltitle'>About me</div>
             <div className='input-container input-container-aboutme'>
-              <label htmlFor="about me" className="label-about-me"> Add some more info about you. Don’t forget to mention what you are currently looking for. (internship, full time position...) </label>
+              <label htmlFor="about me" className="label-about-me"> Add some more info about you in the description, and add programming languages. Companies will be able to filter on these languages.  </label>
               <Inputfield 
               placeholder="Add description" 
               className="newprofile-input" 
@@ -177,6 +261,31 @@ const uploadImage = () => {
               value={form.aboutme} 
               onChange={handleChange}  
                />         
+               {/* <label htmlFor="about me" className="label-about-me"> Add some more info about you. Don’t forget to mention what you are currently looking for. (internship, full time position...) </label> */}
+              <Inputfield 
+              placeholder="Add programming language" 
+              className="newprofile-input" 
+              id="tag1"
+              name="tag1"  
+              value={form.tag1} 
+              onChange={handleChange}  
+               />      
+                    <Inputfield 
+              placeholder="Add programming language" 
+              className="newprofile-input" 
+              id="tag2"
+              name="tag2"  
+              value={form.tag2} 
+              onChange={handleChange}  
+               />   
+                    <Inputfield 
+              placeholder="Add programming language" 
+              className="newprofile-input" 
+              id="tag3"
+              name="tag3"  
+              value={form.tag3} 
+              onChange={handleChange}  
+               />      
             </div>
           </div>
     
@@ -254,14 +363,14 @@ const uploadImage = () => {
               value={form.email} 
               onChange={handleChange} />
               <Inputfield 
-              placeholder="Add link to social media account" 
+              placeholder="Add link to your Github" 
               className="newprofile-input"
               name="socialmedia1"  
               value={form.socialmedia1} 
               onChange={handleChange}
                 />
               <Inputfield 
-              placeholder="Add link to social media account"  
+              placeholder="Add link to your Linkedin"  
               className="newprofile-input"
               name="socialmedia2"  
               value={form.socialmedia2} 
@@ -277,7 +386,7 @@ const uploadImage = () => {
          </form> 
 
       </div>
-      <Navbar />
+      <Navbar id={props.id} />
    </>
   )
 }

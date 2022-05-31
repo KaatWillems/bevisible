@@ -29,6 +29,7 @@ let Tagslist = props.cardinfo.tags.map((tag, index) => {
 
     <container className="card">
     <Link to="/profile" className='no-underline'>
+      
     <div className='startpage-Pic-name-container'>
 
     <img src={`${image}`} alt="profilepic" className='profilepic'/>
