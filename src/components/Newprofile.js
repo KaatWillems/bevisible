@@ -76,46 +76,49 @@ event.preventDefault();
 
     let res = await fetch("https://bevisible-backend.herokuapp.com/user/profile/new", {
       method:'POST',
-      mode: "no-cors",
+      //mode: "no-cors",
       headers:{
         "Content-Type": "application/json",
         // 'x-access-token': `Token ${getCookie("token")}`,
          'x-access-token': ` ${getCookie("token")}`,
       }, 
-       body: JSON.stringify({
-        picture: picture, 
-        firstname: firstname, 
-         lastname: lastname,
-         title: title,
-         status: status,
-         tags: [tag1, tag2, tag3],
-         about: aboutme,
-         work: {
-           position: jobposition, 
-           duration: jobduration
-          },
-        education: {
-          school: institute,
-          graduation: graduationyear
-          },
-        interests: interests,
-        cvlink: "",
-        socials: {
-            email: email,
-            github: socialmedia1,
-            linkedin: socialmedia2,
-            website: email
-          }
-        
-        })
+       body: JSON.stringify({ 
+         form
+       })
+        // picture: "https://res.cloudinary.com/dwna6jxmr/image/upload/v1653311651/vrg8enktshuxzgbzqehm.png", 
+        // firstname: firstname, 
+        //  lastname: lastname,
+        //  title: title,
+        //  status: status,
+        //  tags: [tag1, tag2, tag3],
+        //  about: aboutme,
+        //  work: {
+        //    position: jobposition, 
+        //    duration: jobduration
+        //   },
+        // education: {
+        //   school: institute,
+        //   graduation: graduationyear
+        //   },
+        // interests: interests,
+        // cvlink: "",
+        // socials: {
+        //     email: email,
+        //     github: socialmedia1,
+        //     linkedin: socialmedia2,
+        //     website: email
+        //   }
+        //
+        //})
     })
-    console.log("helloo??")
+    
       const json = await res.json()
       const data = await json
       setForm(data.form)
       console.log("formdata :", form)
 
     console.log(json)
+    console.log("helloo??")
   }
 
   submitUser()
@@ -130,19 +133,19 @@ event.preventDefault();
    //  })
    
 //CLOUDINARY UPLOAD PIC
-const [imageSelected, setImageSelected] = useState();
+// const [imageSelected, setImageSelected] = useState();
 
-const uploadImage = () => {
-  console.log(imageSelected)
-  const formData = new FormData()
-  formData.append("file", imageSelected)
-  formData.append("upload_preset", "fth0jlhu")
+// const uploadImage = () => {
+//   console.log(imageSelected)
+//   const formData = new FormData()
+//   formData.append("file", imageSelected)
+//   formData.append("upload_preset", "fth0jlhu")
 
-  Axios.post("https://api.cloudinary.com/v1_1/dwna6jxmr/image/upload", formData).then((response) => {
- console.log(response);
-  })
+//   Axios.post("https://api.cloudinary.com/v1_1/dwna6jxmr/image/upload", formData).then((response) => {
+//  console.log(response);
+//   })
 
-};
+// };
 
 
   
@@ -167,11 +170,13 @@ const uploadImage = () => {
                 value={form.picture}
                 type="file"
                 placeholder="Choose a profile picture"
-                onChange={(event) => {setImageSelected(event.target.files[0]);
-                }}
+               // onChange={(event) => {setImageSelected(event.target.files[0]);
+                //}}
               />
                <div className='blue-circle'> <label htmlFor="uploadprofilepic" className='label-upload-profile-pic'>Choose profile picture</label></div> 
-              <Button className='btn' value="Upload picture" onClick={uploadImage}/>
+              <Button className='btn' value="Upload picture" 
+              //onClick={uploadImage}
+              />
               
           </div>
     <img cloudName="dwna6jxmr" publicId="jcl2x1jdd1jdf2vdsevd" />
@@ -256,7 +261,7 @@ const uploadImage = () => {
               <Inputfield 
               placeholder="Add description" 
               className="newprofile-input" 
-              id="aboutme"
+              id="about"
               name="aboutme"  
               value={form.aboutme} 
               onChange={handleChange}  
@@ -266,7 +271,7 @@ const uploadImage = () => {
               placeholder="Add programming language" 
               className="newprofile-input" 
               id="tag1"
-              name="tag1"  
+              name="tags"  
               value={form.tag1} 
               onChange={handleChange}  
                />      
@@ -274,7 +279,7 @@ const uploadImage = () => {
               placeholder="Add programming language" 
               className="newprofile-input" 
               id="tag2"
-              name="tag2"  
+              name="tags"  
               value={form.tag2} 
               onChange={handleChange}  
                />   
@@ -282,7 +287,7 @@ const uploadImage = () => {
               placeholder="Add programming language" 
               className="newprofile-input" 
               id="tag3"
-              name="tag3"  
+              name="tags"  
               value={form.tag3} 
               onChange={handleChange}  
                />      
@@ -297,13 +302,13 @@ const uploadImage = () => {
               <Inputfield 
               placeholder="Add job position" 
               className="newprofile-input"
-              name="jobposition"  
+              name="work.position"  
               value={form.jobposition} 
               onChange={handleChange}   />    
               <Inputfield 
               placeholder="Add duration of employment" 
               className="newprofile-input"
-              name="jobduration"  
+              name="work.duration"  
               value={form.jobduration} 
               onChange={handleChange}
                /> 
@@ -320,14 +325,14 @@ const uploadImage = () => {
               <Inputfield 
               placeholder="Add educational institute" 
               className="newprofile-input"
-              name="institute"  
+              name="education.school"  
               value={form.institute} 
               onChange={handleChange}
                />    
               <Inputfield 
               placeholder="Add year of graduation" 
               className="newprofile-input"
-              name="graduationyear"  
+              name="education.graduation"  
               value={form.graduationyear} 
               onChange={handleChange}
                /> 
@@ -359,20 +364,20 @@ const uploadImage = () => {
               <Inputfield 
               placeholder="Add your e-mail addresss"  
               className="newprofile-input"
-               name="email"  
+               name="socials.email"  
               value={form.email} 
               onChange={handleChange} />
               <Inputfield 
               placeholder="Add link to your Github" 
               className="newprofile-input"
-              name="socialmedia1"  
+              name="socials.github"  
               value={form.socialmedia1} 
               onChange={handleChange}
                 />
               <Inputfield 
               placeholder="Add link to your Linkedin"  
               className="newprofile-input"
-              name="socialmedia2"  
+              name="socials.linkedin"  
               value={form.socialmedia2} 
               onChange={handleChange} />    
               
